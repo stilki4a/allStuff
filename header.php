@@ -20,7 +20,7 @@
 				<div class="buton" id="obqva">
 				
 				
-					<a  href="">Добави обява</a>
+					<a  href="./newes.php">Добави обява</a>
 					<input type="image" src="./assets/images/plus2.png" alt="Submit">
 				
 				</div>	
@@ -35,7 +35,7 @@
 		
 		<div id="search">
 			<input type="text" name="search" value="Search..." size="150">
-			<input type="image" src="./assets/images6/lupa2.png" alt="Submit">
+			<input type="image" src="./assets/images/lupa2.png" alt="Submit">
 		</div>
 		
 	</div>
