@@ -62,6 +62,7 @@
                     <td><input type="text"></td>
                 </tr>
             </table>
+            <input type="submit" value="Upload">
         </form>
 </body>
 </html>
