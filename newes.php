@@ -40,10 +40,10 @@
                         <select>
                             <option value="$i">----Изберете Град---</option>
                             <?php
-                            	for ($i = 0; $i <count($arr); $i++){
+                            for ($i = 0; $i <count($arr); $i++){
                             ?>
                             <?php
-                          		echo '<option value="$i">'.$arr[$i].'</option>';
+                          	echo '<option value="$i">'.$arr[$i].'</option>';
 
                             }
                             ?>
