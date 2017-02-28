@@ -88,7 +88,7 @@ if (isset($_POST['submit'])){
 	</head>
 	
 <body>
-	<div id="wrrap">
+	<div id="wrrap"
 	<div id="reglog">
 	
 		<div id="login">
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])){
 					<input type="submit" name="login" value=" Вход"/>
 			
 				</div>
-				<div id="wrong>
+				<div id="wrong">
 				<?=$wrong;?>
 				</div>
 		

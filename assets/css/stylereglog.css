@@ -7,11 +7,12 @@
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0 auto;
 	border:2px solid #666666;
+	display:inline-block;
 	
 }
 #reglog {
 	width:100%;
-	padding:1em 5px;;
+	padding:1em;
 	box-sizing:border-box;
 	display:inline-block;
 } 
