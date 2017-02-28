@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+    <title>AllStuff.bg</title>
     <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
-<title>AllStuff.bg</title>
+
 
 </head>
 <body>
@@ -31,16 +31,14 @@
 			
 		</div>
 		
-	<div id="underhome">
+	    <div id="underhome">
 		
 		<div id="search">
 			<input type="text" name="search" value="Search..." size="150">
 			<input type="image" src="./assets/images/lupa2.png" alt="Submit">
 		</div>
-		
-	</div>
-<<<<<<< HEAD
-</header>
-=======
-</header>
->>>>>>> 87e61cfa28494cb9a7b266da9fdeb8ef5cfd7a43
+        </div>
+		</header>
+
+
+
