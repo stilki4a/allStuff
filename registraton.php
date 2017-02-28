@@ -3,6 +3,7 @@
 
 <?php
 $wrong="";
+$wellcome="";
 if (isset($_POST['login'])){
 
 	$username=htmlentities($_POST['username']);
@@ -19,6 +20,7 @@ if (isset($_POST['login'])){
 		if(($date[0] == $username) && ($date[1]==$pass)){
 			$userPasWrong=false;
 			fclose($handle);
+			$wellcome="Здравей"." ".$username;
 			header('Location:allstuff.html',true,302);
 
 		}
@@ -57,6 +59,7 @@ if (isset($_POST['submit'])){
 			$newUser = PHP_EOL . $username . "-" . $pass . "-";
 			echo "Welcome";
 			fwrite($handle, $newUser);
+			$wellcome="Здравей"." ".$username;
 			header('Location:allstuff.html',true,302);
 		}else{
 			echo "Pass and Repeat pass isn't equel";
@@ -108,8 +111,9 @@ if (isset($_POST['submit'])){
 					<input type="submit" name="login" value=" Вход"/>
 			
 				</div>
-				<p>
+				<div id="wrong>
 				<?=$wrong;?>
+				</div>
 		
 			</form>
 		</div>
@@ -156,3 +160,4 @@ if (isset($_POST['submit'])){
 	</div>
 </body>
 </html>
+<?php include './footer.php'?>
