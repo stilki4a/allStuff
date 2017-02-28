@@ -23,7 +23,7 @@
 					<a  href="./newes.php">Добави обява</a>
 					<input type="image" src="./assets/images/plus2.png" alt="Submit">
 				
-				</div>	
+			</div>	
 				<div class="buton">
 				
 					<a  href="./registraton.php">Моят профил</a>
