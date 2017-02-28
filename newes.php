@@ -8,19 +8,6 @@
      "Област Софийска","Област София","Област Стара Загора","Област Търговище","Област Хасково","Област Шумен","Област Ямбол");
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
-	<link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
- 
-
-    <title>applay new</title>
-</head>
-<body>
      <div id="wrr">
             <h2>Добави обява</h2>
        

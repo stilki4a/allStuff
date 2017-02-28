@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
- 
-<link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
-<link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
 
+    <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
 <title>AllStuff.bg</title>
 
 </head>
@@ -40,4 +40,3 @@
 		
 	</div>
 </header>
-</div>
