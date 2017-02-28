@@ -39,4 +39,8 @@
 		</div>
 		
 	</div>
+<<<<<<< HEAD
 </header>
+=======
+</header>
+>>>>>>> 87e61cfa28494cb9a7b266da9fdeb8ef5cfd7a43

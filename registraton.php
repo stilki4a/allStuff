@@ -158,4 +158,9 @@ if (isset($_POST['submit'])){
 		</div>
 	</div>
 	</div>
+<<<<<<< HEAD
+=======
+</body>
+
+>>>>>>> 87e61cfa28494cb9a7b266da9fdeb8ef5cfd7a43
 <?php include './footer.php'?>
