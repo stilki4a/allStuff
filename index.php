@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@
 		
 		<div id="underhome">
 		<div id="wellcome">
-		<?=$welcome?>
+<!--		--><?//=$welcome?>
 		</div>
 		
 			<div id="search">

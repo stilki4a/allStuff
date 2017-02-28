@@ -62,9 +62,6 @@
 	
 	                        </select>
                         </div>
-                        <!--<input type="radio" name=""> Частно лице-->
-                        <!--<input type="radio" name="">Търговец-->
-                        
                      <div class="regtext">
                     
 	               		<label for="">Вашето име: </label>
@@ -75,6 +72,9 @@
 	                    <label for="">Телефон: </label>
 	                    <input type="text">
 	                 </div>
+                    <div>
+                        <input type="submit" name="sumbmitUpload" value="Upload">
+                    </div>
 	              
         	</form>
        </div>
