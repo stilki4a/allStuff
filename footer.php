@@ -6,7 +6,4 @@
 <a href=""> Контакти</a>
 </footer>
 
-
-
-</body>
 </html>
