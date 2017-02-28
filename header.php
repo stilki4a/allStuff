@@ -14,7 +14,7 @@
 		<header>
 		
 		<div id="logo">
-			<h2><a href="./allstuff.html">AllStuff.bg</a></h2>
+			<h2><a href="./index.php">AllStuff.bg</a></h2>
 			
 			
 				<div class="buton" id="obqva">

@@ -55,7 +55,6 @@ h2>a{
 	width=:100%;
 	
 }
-
 .buton a{
 	text-decoration:none;
 	display:inline-block;
@@ -130,15 +129,18 @@ input[type=image]{
 	margin: 0 auto;
 	display:inline-block;
 	box-sizing:border-box;
+	font-size:1.2em;
 	
 }
 #footer a{
 	width:33%;
 	text-decoration:none;
-	color:;
+	color:green;
 	display:inline-block;
 	box-sizing:border-box;
 	text-align:center;
+	font-size:1.2em;
+	float:left;
 	
 }
  
