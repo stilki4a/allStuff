@@ -32,6 +32,17 @@
         </div>
 
         <div id="underhome">
+        <div>
+        <?php 
+        if(isset($_SESSION['Hallousername'])){
+       	
+       	 	session_start();
+        	echo $_SESSION['Hallousername'];
+        }
+       	
+        
+        ?>
+        </div>
 
             <div id="search">
                 <input type="text" name="search" value="Search..." size="150">
