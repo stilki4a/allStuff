@@ -70,8 +70,8 @@ if (isset($_POST['submit'])){
 }else {
 	
 	$email="";
-	$username=" ";
-	$pass=" ";
+	$username="";
+	$pass="";
 }
 
 
