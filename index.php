@@ -4,7 +4,7 @@
 
 	<nav id="menu">
 		<ul> 
-		<li><a href="">Автомобили</a></li>
+		<li><a href="./cars.php">Автомобили</a></li>
 		<li><a href="">Машини и инструменти</a></li>
 		<li><a href="">Електроника</a></li>
 		
