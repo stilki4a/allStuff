@@ -9,6 +9,7 @@ if (isset($_POST['login'])){
 	$username=htmlentities($_POST['username']);
 	$pass=($_POST['pass']);
 
+
 	$userPasWrong=true;
 
 	$handle= fopen('pit.txt','r+');
@@ -19,14 +20,18 @@ if (isset($_POST['login'])){
 			
 		if(($date[0] == $username) && ($date[1]==$pass)){
 			$userPasWrong=false;
+			session_start();
+			$_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
 			fclose($handle);
-			$wellcome="Здравей"." ".$username;
-			header('Location:allstuff.html',true,302);
-
-		}
+			header('Location:index.php',true,302);
+			break;
+			
+		}		
+		
 	}
+
 	if($userPasWrong){
-		$wrong= "wrong user or pass";
+		$wrong= "Грешен потребител или  парола!";
 			
 	}
 	
@@ -41,6 +46,8 @@ if (isset($_POST['submit'])){
 	
 	$username=htmlentities($_POST['username']);
 	$pass=($_POST['pass']);
+	$loginMail=($_POST['mail']);
+	
 	$existingUser=false;
 	
 	$handle= fopen('pit.txt','a+');
@@ -49,20 +56,23 @@ if (isset($_POST['submit'])){
 		$row=fgets($handle);
 		$date=explode("-",$row);
 		if($date[0] == $username){
-			echo "This username already exist. Thray with anader one, please!";
+			echo "Съществува потребител с такова потребителско име!";
 			$existingUser=true;
 			break;
 		}
 	}
 	if($existingUser==false){
+		$wellcome="";
 		if($_POST['pass']===$_POST['Repeat']){
-			$newUser = PHP_EOL . $username . "-" . $pass . "-";
-			echo "Welcome";
+			$newUser = PHP_EOL . $username . "-" . $pass . "-".$loginMail;
+			
 			fwrite($handle, $newUser);
-			$wellcome="Здравей"." ".$username;
-			header('Location:allstuff.html',true,302);
+			session_start();
+			$_SESSION['Hallousername']="Здравей"." ".$username."!";
+			
+			header('Location:index.php',true,302);
 		}else{
-			echo "Pass and Repeat pass isn't equel";
+			echo "Парола и Повтори парола не са еднакви!";
 		}
 	}
 	
