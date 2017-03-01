@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/proba.css" type="text/css">
 
 
 </head>
@@ -38,7 +39,7 @@
        	
        	 	session_start();
         	echo $_SESSION['Hallousername'];
-        }
+       }
        	
         
         ?>
