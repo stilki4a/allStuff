@@ -21,7 +21,18 @@
                  
                  <div class="regtext">
                 	<label for="">Категория: </label>
-                    <input name="kategoria" type="text" value="">
+                     <select name="" id="">
+                         <option value=""></option>
+                         <option value="">Автомобили</option>
+                         <option value="">Машини и инструменти</option>
+                         <option value="">Електроника</option>
+                         <option value="">Животни</option>
+                         <option value="">Дом и градина</option>
+                         <option value="">Недвижими имоти</option>
+                         <option value="">Мода</option>
+                         <option value="">За бебето и детето</option>
+                         <option value="">Спорт, хоби, книги</option>
+                     </select>
                    </div>
                    
                    <div class="regtext">

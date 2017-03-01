@@ -5,7 +5,13 @@
     <title>AllStuff.bg</title>
     <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
+
    
+
+    <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/proba.css" type="text/css">
+
+
 
 </head>
 <body>
@@ -37,7 +43,7 @@
         if(isset($_SESSION['Hallousername'])){
        	
         	echo $_SESSION['Hallousername'];
-        }
+       }
        	
         
         ?>
