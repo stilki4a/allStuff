@@ -12,6 +12,7 @@
             <h2>Добави обява</h2>
        
         <form action="" method="post">
+        	<link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
             
                 <div class="regtext">
                     <label for="">Заглавие: </label>

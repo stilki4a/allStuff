@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+#footer{
+	padding:2em 10em;
+	width:1170px;
+	margin: 0 auto;
+	display:inline-block;
+	box-sizing:border-box;
+	font-size:1.2em;
+	
+}
+#footer a{
+	width:33%;
+	text-decoration:none;
+	color:green;
+	display:inline-block;
+	box-sizing:border-box;
+	text-align:center;
+	font-size:1.2em;
+	float:left;
+	
+}
+ 

@@ -29,7 +29,7 @@ if (isset($_POST['login'])){
 		}		
 		
 	}
-
+	header('Location:index.php',true,302);
 	if($userPasWrong){
 		$wrong= "Грешен потребител или  парола!";
 			

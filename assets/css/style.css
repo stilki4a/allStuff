@@ -69,6 +69,11 @@ h2>a{
 	margin-top:-3;
 	box-shadow:20px 20px 800px 20px #7A9985
 }
+#hallo{
+	text-align:center;
+	font-size:0.8em;
+	color:#ffffff;
+}
 
 #search{
 	width:100%;

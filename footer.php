@@ -1,3 +1,7 @@
+ 
+ 
+ <link rel="stylesheet" href="./assets/css/footercss.css" type="text/css" />
+
 </div>
 <footer id="footer">
     <a href=""> Общи условия</a>

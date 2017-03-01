@@ -5,8 +5,7 @@
     <title>AllStuff.bg</title>
     <link rel="stylesheet" href="./assets/css/ressets.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
-
+   
 
 </head>
 <body>
@@ -32,11 +31,11 @@
         </div>
 
         <div id="underhome">
-        <div>
+        <div id="hallo">
         <?php 
+        session_start();
         if(isset($_SESSION['Hallousername'])){
        	
-       	 	session_start();
         	echo $_SESSION['Hallousername'];
         }
        	
