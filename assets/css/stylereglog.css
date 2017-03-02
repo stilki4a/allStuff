@@ -67,12 +67,13 @@ input[type=submit]{
 	
 }
 #wrr {
-	width:1170px;
+	width:500px;
 	padding:1em;
 	box-sizing:border-box;
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0 auto;
-	border:2px solid #666666;
+	box-shadow:20px 20px 80px 20px #7A9985
+	
 
 }
 

@@ -16,13 +16,13 @@
             
                 <div class="regtext">
                     <label for="">Заглавие: </label>
-                    <input name="zaglavie" type="text" value="">
+                    <input name="zaglavie" type="text" value="" size="23">
                  </div>
                  
                  <div class="regtext">
-                	<label for="">Категория: </label>
-                     <select name="" id="">
-                         <option value=""></option>
+                	<label  for="">Категория: </label>
+                     <select  name="" id="">
+                         
                          <option value="">Автомобили</option>
                          <option value="">Машини и инструменти</option>
                          <option value="">Електроника</option>
@@ -36,20 +36,20 @@
                    </div>
                    
                    <div class="regtext">
-               		<label for="">Описание: </label></td>
-                    <textarea name="opisanie" id="" cols="30" rows="10" value=""></textarea> 
+               		<label for="">Описание: </label>
+                    <textarea name="opisanie" id="" cols="44" rows="6" value=""></textarea> 
                    </div>
                    
                    <div class="regtext">
-	                	<label for="">Снимки: </label>
-	                   	<input type="text">
+	                	<label for="img">Снимки: </label>
+	                   	<input id="img" type="text" size="23">
                    	</div>
                 	
                 	<div class="regtext">
-	                    <label>Местоположение: </label>
+	                    <label >Местоположение: </label>
 	                    
-	                        <select>
-	                            <option value="$i">----Изберете Град---</option>
+	                        <select >
+	                            <option value="$i">-Изберете Град-</option>
 	                            <?php
 	                            	for ($i = 0; $i <count($arr); $i++){
 	                            ?>
@@ -64,12 +64,12 @@
                      <div class="regtext">
                     
 	               		<label for="">Вашето име: </label>
-	                   	<input type="text">
+	                   	<input size="23" type="text">
                    	</div>
                    	
                 	<div class="regtext">
 	                    <label for="">Телефон: </label>
-	                    <input type="text">
+	                    <input  type="text" size="23">
 	                 </div>
                     <div>
                         <input type="submit" name="sumbmitUpload" value="Upload">
