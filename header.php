@@ -1,3 +1,12 @@
+
+<?php
+ $arr= array("Област Благоевград","Област Бургас","Област Варна","Област Велико Търново","Област Видин","Област Враца",
+     "Област Габрово","Област Добрич","Област Кърджали","Област Кюстендил","Област Ловеч","Област Монтана","Област Пазарджик","Област Перник",
+      "Област Плевен","Област Пловдив","Област Разград","Област Русе","Област Силистра","Област Сливен","Област Смолян",
+     "Област Софийска","Област София","Област Стара Загора","Област Търговище","Област Хасково","Област Шумен","Област Ямбол");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +34,7 @@
             <div class="buton" id="obqva">
 
 
-                <a  href="./newes.php">Добави обява</a>
+                <a name="obqva" href="./newes.php">Добави обява</a>
                 <input type="image" src="./assets/images/plus2.png" alt="Submit">
 
             </div>
@@ -49,9 +58,25 @@
         ?>
         </div>
 
-            <div id="search">
-                <input type="text" name="search" value="Search..." size="150">
-                <input type="image" src="./assets/images/lupa2.png" alt="Submit">
+            <div id="searcharea">
+            
+	           <label for="grad"> </label>
+	                    
+	                 <select id="grad" name="grad">
+	                     <option value="$i">  Изберете Град</option>
+	                         <?php
+	                           for ($i = 0; $i <count($arr); $i++){
+	                         
+	                          		echo '<option value="$i">'.$arr[$i].'</option>';
+	                           }
+	                          ?>
+	
+	                  </select>
+                     
+                <input id="search" type="text" name="search" value="Search..." size="80">
+                <div id="lupa">
+               	 <input  name="lupa" type="image" src="./assets/images/lupa2.png" alt="Submit">
+                </div>
             </div>
         </div>
     </header>

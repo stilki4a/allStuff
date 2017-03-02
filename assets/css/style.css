@@ -67,7 +67,8 @@ h2>a{
 	box-sizing:border-box;
 	padding:1em;
 	margin-top:-3;
-	box-shadow:20px 20px 800px 20px #7A9985
+	box-shadow:20px 20px 800px 20px #7A9985;
+	display:inline-block;
 }
 #hallo{
 	text-align:right;
@@ -76,30 +77,56 @@ h2>a{
 	padding:5px
 }
 
-#search{
+
+#searcharea{
 	width:100%;
-	height:40px;
+	
 	box-sizing:border-box;
 	background-color:#ffffff;
 	color:#000000;
 	padding:8px 8px 8px 5px;
 	display:inline-block;
-
-
+	float:left;
 	
 }
-header input{
+
+#grad{
+	width:40%;
+	box-sizing:border-box;
+	background-color:#ffffff;
+	color:#000000;
+	margin:0 8px;
 	display:inline-block;
-	height:30px;
-	
-	border:none;
+	float:left;
+	border: 3px solid #666666;
+	border-radius:30px;
 	opacity:0.6;
+	
+}
+	 #search{
+	display:inline-block;
+	margin:0 8px
+	width:40%;
+	border:3px solid #666666 ;
+	opacity:0.6;
+	border-radius:30px;
+}
+#lupa{
+	display:inline-block;
+	width:13%;
+	box-sizing:border-box;
+	border: 3px solid #666666;
+	float:right;
+	border-radius:30px;
+	opacity:0.6;
+	
 }
 
 input[type=image]{
-	height:25px;
-	width:25px;
+	height:17px;
+	width:20px;
 	float:right;
+	display:inline-block;
 
 }
 #menu{
