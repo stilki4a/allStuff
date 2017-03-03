@@ -83,8 +83,9 @@ if (isset($_POST['submit'])){
 
 
 ?>
+   
 
-<div id="wrrap"
+<div id="wrrap">
 <div id="reglog">
 
     <div id="login">

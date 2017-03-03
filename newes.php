@@ -1,8 +1,9 @@
+ <div id="obqvaout">
  <div id="wrr">
         <h2>Добави обява</h2>
 
         <form action="" method="post">
-            <link rel="stylesheet" href="../FCAllStuff/assets/css/stylereglog.css" type="text/css" />
+            <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
 
             <div class="regtext">
                 <label for="">Заглавие: </label>
@@ -27,7 +28,7 @@
 
             <div class="regtext">
                 <label for="">Описание: </label>
-                <textarea name="opisanie" id="" cols="44" rows="6" value=""></textarea>
+                <textarea name="opisanie" id="" cols="44" rows="6" ></textarea>
             </div>
 
             <div class="regtext">
@@ -67,4 +68,5 @@
 
         </form>
     </div>
+ </div>
  </div>
