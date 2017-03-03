@@ -1,27 +1,18 @@
+<?php include "./header.php"; ?>
+
 <?php
- include './header.php'
+
+if (isset($_GET['page'])){
+    $file = "./".$_GET['page'].".php";
+    if (file_exists($file)){
+        include $file;
+    }else{
+        include "./notfound.php";
+    }
+}else{
+    include "./homepage.php";
+}
+
 ?>
 
-	<nav id="menu">
-		<ul> 
-		<li><a href="./cars.php">Автомобили</a></li>
-		<li><a href="">Машини и инструменти</a></li>
-		<li><a href="">Електроника</a></li>
-		
-		</ul>
-			<ul> 
-	
-		<li><a href="">Животни</a></li>
-		<li><a href="">Дом и градина</a></li>
-		<li><a href="">Недвижими имоти</a></li>
-		</ul>
-			<ul> 
-		<li><a href="">Мода</a></li>
-		<li><a href="">За бебето и детето</a></li>
-		<li><a href="">Спорт, хоби, книги</a></li>
-	
-		</ul>
-	</nav>
-<?php
-    include './footer.php'
-?>
+<?php include "./footer.php"; ?>
