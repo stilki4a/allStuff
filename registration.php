@@ -25,9 +25,9 @@ if (isset($_POST['login'])){
         }
 
     }
-    header('Location:index.php',true,302);
+    header('Location:?page=registration',true,302);
     if($userPasWrong){
-        $wrong= "Грешен потребител или  парола!";
+        $wrong = "Грешен потребител или  парола!";
 
     }
 
