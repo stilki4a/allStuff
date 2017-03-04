@@ -6,13 +6,13 @@
 	box-sizing:border-box;
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0 auto;
-	border:2px solid #666666;
+	
 	display:inline-block;
 	
 }
 #reglog {
 	width:100%;
-	padding:1em;
+	padding:1em 5em;
 	box-sizing:border-box;
 	display:inline-block;
 } 
@@ -21,7 +21,8 @@
 	width:50%;
 	display:inline-block;
 	float:left;
-
+	box-shadow:20px 20px 80px 20px #7A9985;
+	
 	
 }
 #regist{
@@ -29,6 +30,7 @@
 	width:50%;
 	display:inline-block;
 	float:left;
+	box-shadow:20px 20px 80px 20px #7A9985
 	
 }
 
@@ -54,6 +56,12 @@ form label{
 	color:#ffffff;
 	
 }
+input[name=login]{
+	margin-left:205px;
+}
+	
+
+
 input[type=submit]{
 	
 	background-color:#FF8F45;
@@ -65,6 +73,14 @@ input[type=submit]{
 	color:#ffffff;
 	font-size:1.2em;
 	
+}
+#obqvaout{
+	width:1170px;
+	box-sizing:border-box;
+	display:inline-block;
+	box-shadow:20px 20px 800px 20px #7A9985;
+	padding:0.5em;
+	margin:0 auto;s
 }
 #wrr {
 	width:500px;

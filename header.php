@@ -54,7 +54,7 @@ $arr= array("Област Благоевград","Област Бургас","�
                 ?>
             </div>
 
-            <div id="searcharea">
+          
 
                 <label for="grad"> </label>
 
@@ -73,6 +73,6 @@ $arr= array("Област Благоевград","Област Бургас","�
                 <div id="lupa">
                     <input  name="lupa" type="image" src="./assets/images/lupa2.png" alt="Submit">
                 </div>
-            </div>
+           
         </div>
     </header>
