@@ -19,7 +19,7 @@ if (isset($_POST['login'])){
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
             fclose($handle);
-            header('Location:homepage.php',true,302);
+            header('Location:.homepage.php',true,302);
             break;
 
         }
