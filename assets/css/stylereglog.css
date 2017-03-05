@@ -23,6 +23,7 @@
 	float:left;
 	box-shadow:20px 20px 80px 20px #7A9985;
 	
+	padding:5px;
 	
 }
 #regist{
@@ -30,7 +31,8 @@
 	width:50%;
 	display:inline-block;
 	float:left;
-	box-shadow:20px 20px 80px 20px #7A9985
+	box-shadow:20px 20px 80px 20px #7A9985;
+	padding:5px;
 	
 }
 

@@ -19,13 +19,21 @@ if (isset($_POST['login'])){
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
             fclose($handle);
+<<<<<<< HEAD
             header('Location:.homepage.php',true,302);
+=======
+            header('Location:?page=homepage',true,302);
+>>>>>>> 02177b23d15a2783a657153fd797f62ea785bd33
             break;
-
+            
         }
 
     }
+<<<<<<< HEAD
     header('Location:?page=registration',true,302);
+=======
+    
+>>>>>>> 02177b23d15a2783a657153fd797f62ea785bd33
     if($userPasWrong){
         $wrong = "Грешен потребител или  парола!";
 
