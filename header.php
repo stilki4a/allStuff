@@ -31,7 +31,6 @@ $arr= array("Област Благоевград","Област Бургас","�
 
 
                 <a name="obqva" href="?page=newes">Добави обява</a>
-                <input type="image" src="./assets/images/plus2.png" alt="Submit">
 
             </button>
             <div class="buton">
