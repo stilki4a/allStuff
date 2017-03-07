@@ -82,11 +82,7 @@ if (isset($_POST['submit'])){
     $username="";
     $pass="";
 }
-
-
-
 ?>
-   
 
 <div id="wrrap">
 <div id="reglog">

@@ -27,13 +27,13 @@ $arr= array("Област Благоевград","Област Бургас","�
             <h2><a href="?page=homepage">AllStuff.bg</a></h2>
 
 
-            <div class="buton" id="obqva">
+            <button class="buton" id="obqva">
 
 
                 <a name="obqva" href="?page=newes">Добави обява</a>
                 <input type="image" src="./assets/images/plus2.png" alt="Submit">
 
-            </div>
+            </button>
             <div class="buton">
 
                 <a  href="?page=registration">Моят профил</a>
