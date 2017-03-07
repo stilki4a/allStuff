@@ -53,13 +53,15 @@ h2>a{
 	background-color:#FF8F45;
 	display:inline-block;
 	width:180px;
-	
+	font-weight:bold;
+	font-size:1.2em;
 }
 .buton a{
 	width: 100%;
 	text-decoration:none;
 	display:inline-block;
 	color:#ffffff;
+	
 			
 }
 #underhome{
