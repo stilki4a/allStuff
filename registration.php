@@ -20,13 +20,13 @@ if (isset($_POST['login'])){
             $_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
             fclose($handle);
             header('Location:?page=homepage',true,302);
-       
+
             break;
-            
         }
 
 
     }
+
     if($userPasWrong){
         $wrong = "Грешен потребител или  парола!";
 
@@ -66,6 +66,8 @@ if (isset($_POST['submit'])){
             fwrite($handle, $newUser);
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$username."!";
+
+            mkdir('./dir/'.$username);
 
             header('Location:?page=homepage',true,302);
         }else{
