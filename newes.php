@@ -93,11 +93,11 @@
 
             <div class="regtext">
                 <label for="img">Снимки: </label>
-                <input name="image" id="img" type="file" size="23" accept="image/*" />
+                <input name="image" id="img" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				 <input name="image" id="img" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				 <input name="image" id="img" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
                 
             </div>
@@ -105,18 +105,25 @@
             <div class="regtext">
                 <label >Местоположение: </label>
 
-                <select name="mestopol">
-                    <option value="$i">-Изберете Град-</option>
+      <!--           <select name="mestopol"> -->
+      <!--               <option value="$i">-Изберете Град-</option> -->
                     <?php
-                    for ($i = 0; $i <count($arr); $i++){
+                    
+	                    echo "<select name='mestopol'   id='mestopol' >";
+	                    for($in=0; $in<count($arr); $in++){
+	                    	echo "<option value=$arr[$in]>".$arr[$in]."</option>";
+	                    }
+	                    echo "</select>";
+                    
+                   // for ($i = 0; $i <count($arr); $i++){
                         ?>
                         <?php
-                        echo '<option value="$i">'.$arr[$i].'</option>';
+                      //  echo '<option value="$i">'.$arr[$i].'</option>';
 
-                    }
-                    ?>
+                    //}
+                   // ?>
 
-                </select>
+         <!--       </select> -->
             </div>
             <div class="regtext">
 

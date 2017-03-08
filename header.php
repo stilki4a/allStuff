@@ -15,7 +15,7 @@ $arr= array("Област Благоевград","Област Бургас","�
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/stylereglog.css" type="text/css" />
     <link rel="stylesheet" href="./assets/css/proba.css" type="text/css">
-    <link rel="stylesheet" href="./assets/css/footercss.css" type="text/css" />
+    
 
 
 </head>
