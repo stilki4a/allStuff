@@ -37,7 +37,6 @@ $arr= array("Област Благоевград","Област Бургас","�
 
                 <a  href="?page=registration">Моят профил</a>
             </div>
-
         </div>
 
         <div id="underhome">
@@ -65,7 +64,6 @@ $arr= array("Област Благоевград","Област Бургас","�
                         echo '<option value="$i">'.$arr[$i].'</option>';
                     }
                     ?>
-
                 </select>
 
                 <input id="search" type="text" name="search" value="Search..." size="80">
