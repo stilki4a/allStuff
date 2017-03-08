@@ -62,7 +62,7 @@ if (isset($_POST['submit'])){
         $wellcome="";
         if($_POST['pass']===$_POST['Repeat']){
             $newUser = PHP_EOL . $username . "-" . $pass . "-".$loginMail;
-
+            
             fwrite($handle, $newUser);
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$username."!";
