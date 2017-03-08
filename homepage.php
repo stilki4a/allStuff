@@ -18,3 +18,7 @@
 
     </ul>
 </nav>
+
+<div id="main">
+</div>
+<script type="text/javascript" src=""></script>

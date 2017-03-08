@@ -1,8 +1,68 @@
+ 
+ <?php 
+ if (isset($_POST['submitUpload'])){
+ 	session_start();
+ 	
+ 	if(!(isset($_SESSION['count']))){
+ 		$_SESSION['count']=1;
+ 		
+ 		
+ 	}else{
+ 		$_SESSION['count']++;
+ 	}
+ 	$count=$_SESSION['count'];
+ 	$usernamefolder=$_SESSION['username'];
+ 	
+ 	$nameOb=$_POST['zaglavie'];
+ 	$kateg=$_POST['kategoriq'];
+ 	$opisanie=$_POST['opisanie'];
+ 
+ 	$mestopol=$_POST['mestopol'];
+ 	$contactName=$_POST['contactName'];
+ 	$phone=$_POST['phone'];
+ 
+  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
+  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
+
+  			
+  			mkdir("./dir/$usernamefolder/obqva.$count");
+
+  			
+  			
+  	$handle=fopen("./dir/$usernamefolder/obqva.$count/$nameOb.txt",'a+');
+
+  		fwrite($handle, $all);
+ 	fclose($handle);
+ 	//$nesto=file_get_contents('upload3.txt');
+ 	//var_dump($nesto);
+ 	
+ 	
+ 	if (isset($_FILES['image'])) {
+ 		$fileOnServerName = $_FILES['image']['tmp_name'];
+ 		$fileOriginalName = $_FILES['image']['name'];
+ 	
+ 		if (is_uploaded_file($fileOnServerName)) {
+ 			if (move_uploaded_file($fileOnServerName,
+ 					"./dir/$usernamefolder/obqva.$count/$fileOriginalName")) {
+ 					echo "Bravo, ti uspq! ";
+ 			} else {
+ 				echo "Tuka si grozen! Smeni!";
+ 			}
+ 		}
+ 		else {
+ 			echo "Tuka si grozen! Smeni!";
+ 		}
+ 	}
+ 
+ 	
+ }
+ ?>
+ 
  <div id="obqvaout">
  <div id="wrr">
         <h2>Добави обява</h2>
 
-        <form action="" method="post">
+        <form enctype='multipart/form-data' action="./newes.php" method="post">
             <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
 
             <div class="regtext">
@@ -12,15 +72,15 @@
 
             <div class="regtext">
                 <label  for="">Категория: </label>
-                <select  name="" id="">
+                <select  name="kategoriq" id="kategoriq">
 
-                    <option value="">Автомобили</option>
+                    <option value="avtomovili">Автомобили</option>
                     <option value="">Машини и инструменти</option>
                     <option value="">Електроника</option>
-                    <option value="">Животни</option>
+                    <option value="jivotni">Животни</option>
                     <option value="">Дом и градина</option>
                     <option value="">Недвижими имоти</option>
-                    <option value="">Мода</option>
+                    <option value="moda">Мода</option>
                     <option value="">За бебето и детето</option>
                     <option value="">Спорт, хоби, книги</option>
                 </select>
@@ -33,13 +93,19 @@
 
             <div class="regtext">
                 <label for="img">Снимки: </label>
-                <input id="img" type="text" size="23">
+                <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+                
             </div>
 
             <div class="regtext">
                 <label >Местоположение: </label>
 
-                <select >
+                <select name="mestopol">
                     <option value="$i">-Изберете Град-</option>
                     <?php
                     for ($i = 0; $i <count($arr); $i++){
@@ -55,15 +121,15 @@
             <div class="regtext">
 
                 <label for="">Вашето име: </label>
-                <input size="23" type="text">
+                <input size="23" type="text" name="contactName">
             </div>
 
             <div class="regtext">
                 <label for="">Телефон: </label>
-                <input  type="text" size="23">
+                <input  type="text" size="23" name="phone">
             </div>
             <div>
-                <input type="submit" name="sumbmitUpload" value="Upload">
+                <input type="submit" name="submitUpload" value="Upload">
             </div>
 
         </form>

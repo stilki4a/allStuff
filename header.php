@@ -46,11 +46,18 @@ $arr= array("Област Благоевград","Област Бургас","�
                 if(isset($_SESSION['Hallousername'])){
 
                     echo $_SESSION['Hallousername'];
-                }
-
-
+                
                 ?>
+                
+<!--                	<input type="submit" name="logout" value="Изход"/>-->
+                    <a href="?page=Logout"><button name="logout">Изход</button></a>
+                
+                <?php 
+                }
+                ?>
+                
             </div>
+            
 
           
 
