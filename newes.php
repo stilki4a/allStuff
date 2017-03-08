@@ -74,7 +74,7 @@
                 <label  for="">Категория: </label>
                 <select  name="kategoriq" id="kategoriq">
 
-                    <option value="avtomovili">Автомобили</option>
+                    <option value="avtomobili">Автомобили</option>
                     <option value="">Машини и инструменти</option>
                     <option value="">Електроника</option>
                     <option value="jivotni">Животни</option>
@@ -106,10 +106,11 @@
                 <label >Местоположение: </label>
 
       <!--           <select name="mestopol"> -->
-      <!--               <option value="$i">-Изберете Град-</option> -->
+      <!--               <option value="">-Изберете Град-</option> -->
                     <?php
                     
 	                    echo "<select name='mestopol'   id='mestopol' >";
+	                    echo "<option >"."-Изберете Град-"."</option>";
 	                    for($in=0; $in<count($arr); $in++){
 	                    	echo "<option value=$arr[$in]>".$arr[$in]."</option>";
 	                    }
