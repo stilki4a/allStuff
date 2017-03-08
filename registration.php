@@ -66,8 +66,8 @@ if (isset($_POST['submit'])){
             fwrite($handle, $newUser);
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$username."!";
-
-            mkdir('./dir/'.$username);
+			$_SESSION['username']=$username;
+            mkdir("./dir/$username");
 
             header('Location:?page=homepage',true,302);
         }else{

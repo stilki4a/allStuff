@@ -1,30 +1,59 @@
  
  <?php 
  if (isset($_POST['submitUpload'])){
+ 	session_start();
  	
+ 	if(!(isset($_SESSION['count']))){
+ 		$_SESSION['count']=1;
+ 		
+ 		
+ 	}else{
+ 		$_SESSION['count']++;
+ 	}
+ 	$count=$_SESSION['count'];
+ 	$usernamefolder=$_SESSION['username'];
  	
  	$nameOb=$_POST['zaglavie'];
  	$kateg=$_POST['kategoriq'];
  	$opisanie=$_POST['opisanie'];
- 	$image=null.PHP_EOL;
+ 
  	$mestopol=$_POST['mestopol'];
  	$contactName=$_POST['contactName'];
  	$phone=$_POST['phone'];
  
   	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
-  			$opisanie.PHP_EOL.$image.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
+  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
 
   			
-  			mkdir("./dir/neli/$nameOb");
+  			mkdir("./dir/$usernamefolder/obqva.$count");
 
   			
   			
-  	$handle=fopen("./dir/neli/$nameOb/file.txt",'a+');
+  	$handle=fopen("./dir/$usernamefolder/obqva.$count/$nameOb.txt",'a+');
 
   		fwrite($handle, $all);
  	fclose($handle);
- 	$nesto=file_get_contents('upload3.txt');
- 	var_dump($nesto);
+ 	//$nesto=file_get_contents('upload3.txt');
+ 	//var_dump($nesto);
+ 	
+ 	
+ 	if (isset($_FILES['image'])) {
+ 		$fileOnServerName = $_FILES['image']['tmp_name'];
+ 		$fileOriginalName = $_FILES['image']['name'];
+ 	
+ 		if (is_uploaded_file($fileOnServerName)) {
+ 			if (move_uploaded_file($fileOnServerName,
+ 					"./dir/$usernamefolder/obqva.$count/$fileOriginalName")) {
+ 					echo "Bravo, ti uspq! ";
+ 			} else {
+ 				echo "Tuka si grozen! Smeni!";
+ 			}
+ 		}
+ 		else {
+ 			echo "Tuka si grozen! Smeni!";
+ 		}
+ 	}
+ 
  	
  }
  ?>
@@ -33,7 +62,7 @@
  <div id="wrr">
         <h2>Добави обява</h2>
 
-        <form action="./newes.php" method="post">
+        <form enctype='multipart/form-data' action="./newes.php" method="post">
             <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
 
             <div class="regtext">
@@ -64,7 +93,13 @@
 
             <div class="regtext">
                 <label for="img">Снимки: </label>
-                <input id="img" type="text" size="23">
+                <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+				 <input name="image" id="img" type="file" size="23" accept="image/*" />
+				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
+                
             </div>
 
             <div class="regtext">
