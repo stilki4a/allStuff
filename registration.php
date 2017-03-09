@@ -18,6 +18,7 @@ if (isset($_POST['login'])){
             $userPasWrong=false;
             session_start();
             $_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
+            $_SESSION['username']=$username;
             fclose($handle);
             header('Location:?page=homepage',true,302);
 
