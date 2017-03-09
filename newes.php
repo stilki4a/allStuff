@@ -7,15 +7,19 @@
 // }else{
 	 if (isset($_POST['submitUpload'])){
 
-
 	 	if(!(isset($_SESSION['count']))){
 	 		$_SESSION['count']=1;
 
+	 	
+	 	
+	 	if(!(isset($_COOKIE['count']))){
+	 		setcookie('count','1', time()+10*365*24*60*60);
+	 		
 
 	 	}else{
-	 		$_SESSION['count']++;
+	 		$_COOKIE['count']++;
 	 	}
-	 	$count=$_SESSION['count'];
+	 	$count=$_COOKIE['count']+0;
 	 	$usernamefolder=$_SESSION['username'];
 
 	 	$nameOb=$_POST['zaglavie'];
@@ -59,6 +63,9 @@
 
 
      }
+// 	 	$obqvaArr=fale("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
+// 	 	var_dump($obqvaArr);
+	 }
  }
  ?>
 
@@ -134,7 +141,7 @@
                 <input  type="text" size="23" name="phone">
             </div>
             <div>
-                <input type="submit" name="submitUpload" value="Запиши">
+                <input type="submit" name="submitUpload" value="Запиши" >
             </div>
 
         </form>
