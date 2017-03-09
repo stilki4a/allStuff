@@ -50,7 +50,7 @@ $arr= array("Област Благоевград","Област Бургас","�
                 ?>
                 
 <!--                	<input type="submit" name="logout" value="Изход"/>-->
-                    <a href="?page=Logout"><button name="logout">Изход</button></a>
+                    <a href="?page=Logout" name="logout">Изход</a>
                 
                 <?php 
                 }
