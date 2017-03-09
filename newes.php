@@ -2,7 +2,7 @@
  <?php 
  	
  session_start();
- if(!isset($_SESSION['usrname'])){
+ if(!isset($_SESSION['username'])){
  	header('Location:?page=registration',true, 302);
  }else{
 	 if (isset($_POST['submitUpload'])){
