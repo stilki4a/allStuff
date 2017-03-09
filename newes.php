@@ -1,49 +1,49 @@
- 
- <?php 
- 	
+
+ <?php
+
 // session_start();
- if(!isset($_SESSION['username'])){
- 	header('Location:?page=registration',true, 302);
- }else{
+ if(isset($_SESSION['username'])){
+// 	header('Location:?page=registration',true, 302);
+// }else{
 	 if (isset($_POST['submitUpload'])){
-	 	
-	 	
+
+
 	 	if(!(isset($_SESSION['count']))){
 	 		$_SESSION['count']=1;
-	 		
-	 		
+
+
 	 	}else{
 	 		$_SESSION['count']++;
 	 	}
 	 	$count=$_SESSION['count'];
 	 	$usernamefolder=$_SESSION['username'];
-	 	
+
 	 	$nameOb=$_POST['zaglavie'];
 	 	$kateg=$_POST['kategoriq'];
 	 	$opisanie=$_POST['opisanie'];
-	 
+
 	 	$mestopol=$_POST['mestopol'];
 	 	$contactName=$_POST['contactName'];
 	 	$phone=$_POST['phone'];
-	 
+
 	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
 	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
-	
-	  			
+
+
 	  			mkdir("./dir/$usernamefolder/obqva.$count");
-	
-	  			
-	  			
+
+
+
 	  	$handle=fopen("./dir/$usernamefolder/obqva.$count/$nameOb.txt",'a+');
-	
+
 	  		fwrite($handle, $all);
 	 	fclose($handle);
-	 	
-	 	
+
+
 	 	if (isset($_FILES['image'])) {
 	 		$fileOnServerName = $_FILES['image']['tmp_name'];
 	 		$fileOriginalName = $_FILES['image']['name'];
-	 	
+
 	 		if (is_uploaded_file($fileOnServerName)) {
 	 			if (move_uploaded_file($fileOnServerName,
 	 					"./dir/$usernamefolder/obqva.$count/$fileOriginalName")) {
@@ -56,17 +56,17 @@
 	 			echo "Tuka si grozen! Smeni!";
 	 		}
 	 	}
-	 
-	 	
-	 }
+
+
+     }
  }
  ?>
- 
+
  <div id="obqvaout">
  <div id="wrr">
         <h2>Добави обява</h2>
 
-        <form enctype='multipart/form-data' action="./newes.php" method="post">
+        <form enctype='multipart/form-data' action="?page=newes" method="post">
             <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
 
             <div class="regtext">
@@ -103,25 +103,25 @@
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
 				 <input name="image" id="img" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-                
+
             </div>
 
             <div class="regtext">
                 <label >Местоположение: </label>
 
                     <?php
-                    
+
 	                    echo "<select name='mestopol'   id='mestopol' >";
 	                    echo "<option >"."-Изберете Град-"."</option>";
 	                    for($in=0; $in<count($arr); $in++){
 	                    	echo "<option value=$arr[$in]>".$arr[$in]."</option>";
 	                    }
 	                    echo "</select>";
-                    
-                  
+
+
                         ?>
-                       
-         
+
+
             </div>
             <div class="regtext">
 

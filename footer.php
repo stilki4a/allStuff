@@ -6,5 +6,6 @@
     <a href=""> Контакти</a>
     <a href=""> Партньори</a>
 </footer>
+
 </body>
 </html>
