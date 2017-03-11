@@ -57,7 +57,7 @@
 	 					"./dir/$usernamefolder/obqva.$count/$fileOriginalName")) {
 	 					echo "Bravo, ti uspq! ";
 	 			} else {
-	 				echo "Tuka si grozen! Smeni!";
+	 			 echo "Tuka si grozen! Smeni!";
 	 			}
 	 		}
 	 		else {
@@ -65,8 +65,10 @@
 	 		}
 	 	}
 	 	
-	 	$obqvaArr=explode('PHP_EOL',$all);
-	 	var_dump($obqvaArr);
+	 	$obqvaArr=file("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
+	 	
+	 	$obqvaString=implode('',$obqvaArr);
+	 	echo $obqvaString;
 
      }
 	 	
@@ -147,10 +149,12 @@
                 <input  type="text" size="23" name="phone">
             </div>
             <div>
-                <input type="submit" name="submitUpload" value="Запиши" >
+                <input type="submit" id="upload" name="submitUpload" value="Запиши" >
             </div>
 
         </form>
+        <script src="./obqva.js">
+	</script>
     </div>
  </div>
  </div>
