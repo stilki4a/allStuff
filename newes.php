@@ -2,24 +2,26 @@
  <?php
 
 // session_start();
- if(isset($_SESSION['username'])){
-// 	header('Location:?page=registration',true, 302);
-// }else{
+ if(!(isset($_SESSION['username']))){
+ 	header('Location:?page=registration',true, 302);
+ }else{
 	 if (isset($_POST['submitUpload'])){
 
-	 	if(!(isset($_SESSION['count']))){
-	 		$_SESSION['count']=1;
-
 	 	
-	 	
-	 	if(!(isset($_COOKIE['count']))){
-	 		setcookie('count','1', time()+10*365*24*60*60);
+	 	$username=$_SESSION['username'];
+	 	if(!(isset($_COOKIE["count.$username"]))){
+	 		$count=1;
+	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
 	 		
-
-	 	}else{
-	 		$_COOKIE['count']++;
 	 	}
-	 	$count=$_COOKIE['count']+0;
+	 	if((isset($_COOKIE["count.$username"]))){
+	 		
+	 		$count=$_COOKIE["count.$username"];
+	 		$count+=1;
+	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
+	 	}
+	 	
+	 	
 	 	$usernamefolder=$_SESSION['username'];
 
 	 	$nameOb=$_POST['zaglavie'];
@@ -29,6 +31,8 @@
 	 	$mestopol=$_POST['mestopol'];
 	 	$contactName=$_POST['contactName'];
 	 	$phone=$_POST['phone'];
+	 	
+	 
 
 	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
 	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
@@ -44,9 +48,9 @@
 	 	fclose($handle);
 
 
-	 	if (isset($_FILES['image'])) {
-	 		$fileOnServerName = $_FILES['image']['tmp_name'];
-	 		$fileOriginalName = $_FILES['image']['name'];
+	 	if (isset($_FILES['image1'])) {
+	 		$fileOnServerName = $_FILES['image1']['tmp_name'];
+	 		$fileOriginalName = $_FILES['image1']['name'];
 
 	 		if (is_uploaded_file($fileOnServerName)) {
 	 			if (move_uploaded_file($fileOnServerName,
@@ -60,13 +64,15 @@
 	 			echo "Tuka si grozen! Smeni!";
 	 		}
 	 	}
-
+	 	
+	 	$obqvaArr=explode('PHP_EOL',$all);
+	 	var_dump($obqvaArr);
 
      }
-// 	 	$obqvaArr=fale("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
-// 	 	var_dump($obqvaArr);
-	 }
- }
+	 	
+}
+ 
+
  ?>
 
  <div id="obqvaout">
@@ -104,11 +110,11 @@
 
             <div class="regtext">
                 <label for="img">Снимки: </label>
-                <input name="image" id="img" type="file"  accept="image/*" />
+                <input name="image1" id="img1" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image" id="img" type="file"  accept="image/*" />
+				 <input name="image2" id="img2" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image" id="img" type="file"  accept="image/*" />
+				 <input name="image3" id="img3" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
 
             </div>
