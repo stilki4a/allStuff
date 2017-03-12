@@ -169,6 +169,11 @@ input[type=image]{
 	margin:8px;
 	display:inline-block;
 }
+
+#menu ul li{
+	padding:1em;
+}
+
 #menu ul li a:hover{
 	color:darkgreen;
 	
