@@ -7,12 +7,12 @@
     </ul>
     <ul>
 
-        <li><a href="">Животни</a></li>
+        <li><a href="?page=animals">Животни</a></li>
         <li><a href="">Дом и градина</a></li>
         <li><a href="">Недвижими имоти</a></li>
     </ul>
     <ul>
-        <li><a href="">Мода</a></li>
+        <li><a href="?page=moda">Мода</a></li>
         <li><a href="">За бебето и детето</a></li>
         <li><a href="">Спорт, хоби, книги</a></li>
 
