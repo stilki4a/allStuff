@@ -1,5 +1,5 @@
 
-<div border="1px" solid black id="avtowrapper">
+<div  id="avtowrapper">
     <div class="avtomobili">
         <img src="../allStuff/assets/images/Audi-Logo-PNG.png" alt="audilogo">
         <h3><a href="">Audi</a></h3>
