@@ -166,8 +166,9 @@ input[type=image]{
 	text-decoration:none;
 	color:black;
 	font-size:1.2em;
-	margin:8px;
+	margin: 8px;
 	display:inline-block;
+	text-align:;
 }
 
 #menu ul li{
@@ -188,9 +189,20 @@ input[type=image]{
 	
 	
 }
+span {
+	margin-bottom:-8px;
+	display:inline-block;
+	box-sizing:border-box;
+	
+}
 .icons{
 	width:40px;
 	height:40px;
+	
+}
+#main{
+	height:300px;
+	
 	
 }
 #footer a{

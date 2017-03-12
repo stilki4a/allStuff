@@ -8,18 +8,21 @@
 	 if (isset($_POST['submitUpload'])){
 
 	 	
-	 	//$username=$_SESSION['username'];
-	 	if(!(isset($_COOKIE["count"]))){
-	 		$count=1;
-	 		setcookie("count",$count, time()+10*365*24*60*60);
-	 		
-	 	}
-	 	if((isset($_COOKIE["count"]))){
-	 		
-	 		$count=$_COOKIE["count"];
+	 	$username=$_SESSION['username'];
+	 	
+	 	if((isset($_COOKIE["count.$username"]))){
+	 	
+	 		$count=$_COOKIE["count.$username"];
 	 		$count+=1;
-	 		setcookie("count",$count, time()+10*365*24*60*60);
+	 		echo $count;
+	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
 	 	}
+	 	if(!(isset($_COOKIE["count.$username"]))){
+	 		$count=1;
+	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
+	 		
+	 	}
+	 	
 	 	
 	 	
 	 	$usernamefolder=$_SESSION['username'];
