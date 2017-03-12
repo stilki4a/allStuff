@@ -20,5 +20,15 @@
 </nav>
 
 <div id="main">
+<?php 
+include_once 'proba.php';
+foreach($obqvaArr as $key=>$value){
+	if($key ===' '){
+		echo "<img $value ";
+		continue;
+	}
+	echo "<p>".$key." ".$value."</p>";
+}
+?>
 </div>
 <script type="text/javascript" src="./obqva.js"></script>
