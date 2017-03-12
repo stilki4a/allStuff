@@ -118,9 +118,11 @@ h2 > a{
 	display:inline-block;
 	margin:0 8px;
 	width:41%;
-	height:30px;
+	height:40px;
+	
 	border:3px solid #ffffff ;
 	opacity:0.6;
+	box-sizing:border-box;
 	
 }
 #lupa{
@@ -136,11 +138,13 @@ h2 > a{
 }
 
 input[type=image]{
-	height:17px;
-	width:20px;
+	height:35px;
+	width:35px;
 	float:right;
 	display:inline-block;
+	background-color:#ffffff;
 
+	opacity:0.6;
 }
 #menu{
 	width:100%;
@@ -177,6 +181,11 @@ input[type=image]{
 	box-sizing:border-box;
 	font-size:1em;
 	
+	
+}
+.icons{
+	width:40px;
+	height:40px;
 	
 }
 #footer a{
