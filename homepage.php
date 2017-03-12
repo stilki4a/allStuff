@@ -21,4 +21,4 @@
 
 <div id="main">
 </div>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="./obqva.js"></script>

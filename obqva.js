@@ -1,5 +1,5 @@
 
-var obqva =document.getElementById('upload');
+var obqva = document.getElementById('upload');
 
 obqva.onklick = function() {
 	
@@ -13,9 +13,9 @@ obqva.onklick = function() {
 			var divResult=document.getElementById('main');
 			divResult.innerHTML=" ";
 				
-			
+			console.log(this.responseText);
 				for (var index=0; index < obqvaElements.length; index++) {
-				console.log( obqvaElements[index]);
+				
 				
 				var p = document.createElement('p');
 				p.innerHTML = obqvaElements[index];
@@ -26,9 +26,9 @@ obqva.onklick = function() {
 		}
 	};
 	curier.open('GET',
-				'http://localhost/allStuff/newes.php',
+				'http://localhost/allStuff/proba.php',
 				true);
 	
-	curier.send(null);	
+	curier.send();	
 };
 

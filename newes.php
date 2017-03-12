@@ -65,10 +65,10 @@
 	 		}
 	 	}
 	 	
-	 	$obqvaArr=file("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
+// 	 	$obqvaArr=file("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
 	 	
-	 	$obqvaString=implode('',$obqvaArr);
-	 	echo $obqvaString;
+// 	 	$obqvaString=implode('',$obqvaArr);
+// 	 	echo $obqvaString;
 
      }
 	 	
@@ -153,8 +153,7 @@
             </div>
 
         </form>
-        <script src="./obqva.js">
-	</script>
+     
     </div>
  </div>
  </div>
