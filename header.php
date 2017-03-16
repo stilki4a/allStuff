@@ -72,7 +72,7 @@ $arr= array("Благоевград","Бургас","Варна","Велико �
                     ?>
                 </select>
 
-                <input id="search" type="search" name="search" placeholder="Search..." size="80">
+                <input id="search" type="search" name="search" placeholder="Search..." size="150">
                
                     <input  name="lupa" type="image" src="./assets/images/lupa2.png" alt="Submit">
                

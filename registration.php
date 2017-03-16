@@ -12,13 +12,13 @@ if (isset($_POST['login'])){
     $handle= fopen('pit.txt','r+');
 
     while(!feof($handle)){
-        $row=fgets($handle);
-        $date=explode("-",$row);
-        if(($date[0] == $username) && ($date[1]==$pass)){
-            $userPasWrong=false;
+        $row = fgets($handle);
+        $date = explode("-",$row);
+        if(($date[0] == $username) && ($date[1] == $pass)){
+            $userPasWrong = false;
             session_start();
-            $_SESSION['Hallousername']="Здравей"." ".$date[0]."!";
-            $_SESSION['username']=$username;
+            $_SESSION['Hallousername'] = "Здравей"." ".$date[0]."!";
+            $_SESSION['username'] = $username;
             fclose($handle);
             header('Location:?page=homepage',true,302);
 
@@ -40,35 +40,36 @@ if (isset($_POST['login'])){
 
 if (isset($_POST['submit'])){
 
-    $email=$_POST['mail'];
+    $email = $_POST['mail'];
 
-    $username=htmlentities($_POST['username']);
-    $pass=($_POST['pass']);
-    $loginMail=($_POST['mail']);
+    $username = htmlentities($_POST['username']);
+    $pass = ($_POST['pass']);
+    $loginMail = ($_POST['mail']);
 
-    $existingUser=false;
+    $existingUser = false;
 
-    $handle= fopen('pit.txt','a+');
+    $handle = fopen('pit.txt','a+');
 
-    while(!feof($handle)){
-        $row=fgets($handle);
-        $date=explode("-",$row);
+    while(!feof( $handle )){
+        $row = fgets( $handle );
+        $date = explode("-",$row);
         if($date[0] == $username){
             echo "Съществува потребител с такова потребителско име!";
             $existingUser=true;
             break;
         }
     }
-    if($existingUser==false){
+    if($existingUser == false){
         $wellcome="";
-        if($_POST['pass']===$_POST['Repeat']){
-            $newUser = PHP_EOL . $username . "-" . $pass . "-".$loginMail;
+        if($_POST['pass'] === $_POST['Repeat']){
+            $newUser = $username . "-" . $pass . "-".$loginMail.PHP_EOL;
             
-            fwrite($handle, $newUser);
+            fwrite( $handle, $newUser);
             session_start();
-            $_SESSION['Hallousername']="Здравей"." ".$username."!";
-			$_SESSION['username']=$username;
+            $_SESSION['Hallousername'] ="Здравей"." ".$username."!";
+			$_SESSION['username'] = $username;
             mkdir("./dir/$username");
+            
 
             header('Location:?page=homepage',true,302);
         }else{
