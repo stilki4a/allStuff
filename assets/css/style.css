@@ -102,7 +102,7 @@ h2 > a{
 }
 
 #grad{
-	width:41%;
+	width:45%;
 	height:40px;
 	box-sizing:border-box;
 	background-color:#ffffff;
@@ -117,7 +117,7 @@ h2 > a{
 	 #search{
 	display:inline-block;
 	margin:0 8px;
-	width:41%;
+	width:49%;
 	height:40px;
 	
 	border:3px solid #ffffff ;

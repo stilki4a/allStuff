@@ -6,7 +6,9 @@
  	header('Location:?page=registration',true, 302);
  }else{
 	 if (isset($_POST['submitUpload'])){
+	 	$username=$_SESSION['username'];
 
+<<<<<<< HEAD
 
 	 	$username=$_SESSION['username'];
 //	 	if((isset($_COOKIE["count.$username"]))){
@@ -37,7 +39,31 @@
 
 
 	 	$usernamefolder=$_SESSION['username'];
+=======
+	 	
+	 	$username = $_SESSION['username'];
+	 	if(file_exists("./dir/$username/count.txt")){
+	 		$count=file_get_contents("./dir/$username/count.txt");
+	 	
+	 		$count++;
+	 	
+ 		 	$handle = fopen("./dir/$username/count.txt",'w+');
+ 		 		fwrite($handle, $count);
 
+		 	fclose($handle);
+	 	}else{
+	 		
+	 		$count=1;
+	 		$handle = fopen("./dir/$username/count.txt",'w+');
+ 		 	fwrite($handle, $count);
+
+		 	fclose($handle);
+	 		}
+	 	
+	 		
+>>>>>>> 1555ea6ea1c3c8912518b7ba7ba55fd060bd9d93
+
+	 	
 	 	$nameOb=$_POST['zaglavie'];
 	 	$kateg=$_POST['kategoriq'];
 	 	$opisanie=$_POST['opisanie'];
@@ -48,13 +74,17 @@
 
 
 
+<<<<<<< HEAD
+=======
+	  			mkdir("./dir/$username/obqva.$count");
+>>>>>>> 1555ea6ea1c3c8912518b7ba7ba55fd060bd9d93
 
 	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
 	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
 
 	  	 mkdir("./dir/$usernamefolder/obqva.$count");
 
-	  	$handle=fopen("./dir/$usernamefolder/obqva.$count/$nameOb.txt",'a+');
+	  	$handle=fopen("./dir/$username/obqva.$count/$nameOb.txt",'a+');
 
 	  		fwrite($handle, $all);
 	 	fclose($handle);
@@ -66,7 +96,7 @@
 
 	 		if (is_uploaded_file($fileOnServerName)) {
 	 			if (move_uploaded_file($fileOnServerName,
-	 					"./dir/$usernamefolder/obqva.$count/$fileOriginalName")) {
+	 					"./dir/$username/obqva.$count/$fileOriginalName")) {
 	 					echo "Bravo, ti uspq! ";
 	 			} else {
 	 			 echo "Tuka si grozen! Smeni!";
@@ -145,7 +175,6 @@
 	                    }
 	                    echo "</select>";
 
-
                         ?>
 
 
@@ -169,3 +198,5 @@
     </div>
  </div>
  </div>
+
+ 
