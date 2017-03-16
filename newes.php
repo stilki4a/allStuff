@@ -8,38 +8,12 @@
 	 if (isset($_POST['submitUpload'])){
 	 	$username=$_SESSION['username'];
 
-<<<<<<< HEAD
 
-	 	$username=$_SESSION['username'];
-//	 	if((isset($_COOKIE["count.$username"]))){
-//
-//	 		$count=$_COOKIE["count.$username"];
-//	 		$count+=1;
-//	 		echo $count;
-//	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
-//	 	}
-//	 	if(!(isset($_COOKIE["count.$username"]))){
-//	 		$count=1;
-//	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
-//
-//	 	}
-
-         if((isset($_COOKIE["count"]))){
-
-             $count=$_COOKIE["count"];
-             $count+=1;
-             setcookie("count",$count, time()+10*365*24*60*60);
-         }
-         if(!(isset($_COOKIE["count"]))){
-             $count=1;
-             setcookie("count",$count, time()+10*365*24*60*60);
-
-         }
 
 
 
 	 	$usernamefolder=$_SESSION['username'];
-=======
+
 	 	
 	 	$username = $_SESSION['username'];
 	 	if(file_exists("./dir/$username/count.txt")){
@@ -61,7 +35,7 @@
 	 		}
 	 	
 	 		
->>>>>>> 1555ea6ea1c3c8912518b7ba7ba55fd060bd9d93
+
 
 	 	
 	 	$nameOb=$_POST['zaglavie'];
@@ -74,10 +48,8 @@
 
 
 
-<<<<<<< HEAD
-=======
-	  			mkdir("./dir/$username/obqva.$count");
->>>>>>> 1555ea6ea1c3c8912518b7ba7ba55fd060bd9d93
+
+
 
 	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
 	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
