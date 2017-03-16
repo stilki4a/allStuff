@@ -7,24 +7,35 @@
  }else{
 	 if (isset($_POST['submitUpload'])){
 
-	 	
+
 	 	$username=$_SESSION['username'];
-	 	
-	 	if((isset($_COOKIE["count.$username"]))){
-	 	
-	 		$count=$_COOKIE["count.$username"];
-	 		$count+=1;
-	 		echo $count;
-	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
-	 	}
-	 	if(!(isset($_COOKIE["count.$username"]))){
-	 		$count=1;
-	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
-	 		
-	 	}
-	 	
-	 	
-	 	
+//	 	if((isset($_COOKIE["count.$username"]))){
+//
+//	 		$count=$_COOKIE["count.$username"];
+//	 		$count+=1;
+//	 		echo $count;
+//	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
+//	 	}
+//	 	if(!(isset($_COOKIE["count.$username"]))){
+//	 		$count=1;
+//	 		setcookie("count.$username",$count, time()+10*365*24*60*60);
+//
+//	 	}
+
+         if((isset($_COOKIE["count"]))){
+
+             $count=$_COOKIE["count"];
+             $count+=1;
+             setcookie("count",$count, time()+10*365*24*60*60);
+         }
+         if(!(isset($_COOKIE["count"]))){
+             $count=1;
+             setcookie("count",$count, time()+10*365*24*60*60);
+
+         }
+
+
+
 	 	$usernamefolder=$_SESSION['username'];
 
 	 	$nameOb=$_POST['zaglavie'];
@@ -34,16 +45,14 @@
 	 	$mestopol=$_POST['mestopol'];
 	 	$contactName=$_POST['contactName'];
 	 	$phone=$_POST['phone'];
-	 	
-	 
+
+
+
 
 	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
 	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
 
-
-	  			mkdir("./dir/$usernamefolder/obqva.$count");
-
-
+	  	 mkdir("./dir/$usernamefolder/obqva.$count");
 
 	  	$handle=fopen("./dir/$usernamefolder/obqva.$count/$nameOb.txt",'a+');
 
@@ -154,7 +163,7 @@
             <div>
                 <input type="submit" id="upload" name="submitUpload" value="Запиши" >
             </div>
-
+            <input type="hidden" value="<?php $count; ?>">
         </form>
      
     </div>
