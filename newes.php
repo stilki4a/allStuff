@@ -56,7 +56,7 @@ if(!(isset($_SESSION['username']))){
                 $picPath = "./dir/$username/$fileOriginalName";
                 $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price,picture_name)
                                         VALUES (null,'$nameOb','$opisanie',
-                                        (SELECT user_id FROM users WHERE user_name ='$username'),$kateg,$mestopo,'$phone','$price','$fileOriginalName'))");
+                                        (SELECT user_id FROM users WHERE user_name ='$username'),$kateg,$mestopo,'$phone','$price','$fileOriginalName')");
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
