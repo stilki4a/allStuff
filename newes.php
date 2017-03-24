@@ -34,7 +34,8 @@ if(!(isset($_SESSION['username']))){
                 $phone = $_POST['phone'];
 
 
-                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price);                                                 VALUES (null,'$nameOb','$opisanie',1,1,1,'$phone','$price')");
+                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price); 
+                			VALUES (null,'$nameOb','$opisanie',1,1,1,'$phone','$price')");
 
 
             }
