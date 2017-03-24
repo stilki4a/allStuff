@@ -33,9 +33,8 @@ if(!(isset($_SESSION['username']))){
                 $price = $_POST['price'];
                 $phone = $_POST['phone'];
 
-//
-//                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price)
-//                                                  VALUES (null,'$nameOb','$opisanie','1','1','1','$phone','$price')");
+
+                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price);                                                 VALUES (null,'$nameOb','$opisanie',1,1,1,'$phone','$price')");
 
 
             }
@@ -67,15 +66,15 @@ if(!(isset($_SESSION['username']))){
                 <label  for="">Категория: </label>
                 <select  name="kategoriq" id="kategoriq">
 
-                    <option value="avtomobili">-Изберете категория-</option>
+                    <option value="">-Изберете категория-</option>
                     <?php
-                    $pstmt = $db->prepare("SELECT cat_name FROM categories;");
+                    $pstmt = $db->prepare("SELECT cat_id, cat_name FROM categories;");
 
 
                     if ($pstmt->execute()) {
                         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                             $categories = $row['cat_name'];
-                            echo "<option value=''>$categories</option>";
+                            echo "<option value='$row[cat_id]'>$categories</option>";
                         }
                     }
                     ?>
@@ -101,11 +100,11 @@ if(!(isset($_SESSION['username']))){
 	                    <select name='mestopol'   id='mestopol' >
 	                    <option >-Изберете Град-</option>
                             <?php
-                            $pstmt = $db->prepare("SELECT location_name FROM locations;");
+                            $pstmt = $db->prepare("SELECT location_id, location_name FROM locations;");
                             if ($pstmt->execute()) {
                                 while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                                     $locationSiti = $row['location_name'];
-                                    echo "<option value=''>$locationSiti</option>";
+                                    echo "<option value='$row[location_id]' > $locationSiti</option>";
                                 }
                             }
                             ?>

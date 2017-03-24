@@ -167,7 +167,7 @@ catch (PDOException $e) {
                 <input type="submit" name="submit" value="Запиши"/>
             </div>
               <div id="exist">
-                <?=$existing;?> <?=$equalPass;?>
+              
             </div>
 
         </form>
