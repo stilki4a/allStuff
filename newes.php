@@ -54,7 +54,8 @@ if(!(isset($_SESSION['username']))){
                     }
                 }
                 $picPath = "./dir/$username/$fileOriginalName";
-                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price,picture_name)
+
+                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
                                         VALUES (null,'$nameOb','$opisanie',
                                         (SELECT user_id FROM users WHERE user_name ='$username'),$kateg,$mestopo,'$phone','$price','$picPath')");
             }
@@ -86,7 +87,6 @@ if(!(isset($_SESSION['username']))){
                 <label  for="">Категория: </label>
                 <select  name="kategoriq" id="kategoriq">
 
-                    <option value="">-Изберете категория-</option>
                     <?php
                     $pstmt = $db->prepare("SELECT cat_id, cat_name FROM categories;");
 
@@ -95,7 +95,7 @@ if(!(isset($_SESSION['username']))){
                         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                             $categories = $row['cat_name'];
 
-                    
+                        echo "".$row['cat_id'];
 
                             echo "<option value='$row[cat_id]'>$categories</option>";
 
@@ -122,15 +122,14 @@ if(!(isset($_SESSION['username']))){
 
 
 	                    <select name='mestopol'   id='mestopol' >
-	                    <option >-Изберете Град-</option>
                             <?php
-                            $pstmt = $db->prepare("SELECT location_id, location_name FROM locations;");
+                            $pstmt = $db->prepare("SELECT location_id, location_name FROM locations ORDER BY location_id;");
                             if ($pstmt->execute()) {
                                 while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                                     $locationSiti = $row['location_name'];
 
                               
-                                    echo "<option value='$row[location_id]' > $locationSiti</option>";
+                                    echo "<option value='$row[location_id]'> $locationSiti</option>";
                                 }
                             }
                             ?>

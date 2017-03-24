@@ -17,13 +17,14 @@ if (isset($_GET['name'])) {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $pstmt = $db->prepare("Select o.obqva_id,o.obqva_zagl,o.price,l.location_name,p.picture_name
-                                             From obqva o
-                                             JOIN locations l
-                                             ON l.location_id = o.fk_location_id
-                                             left outer JOIN pictures p ON o.obqva_id = p.fk_obqva_id
-                                             WHERE obqva_id ='$id;'");
-        if ($pstmt->execute()) {
+                $pstmt = $db->prepare("select o.obqva_zagl,o.obqva_opisanie,o.picture_name,o.price,l.location_name,u.user_name,user_id, c.cat_name
+                                                  FROM obqva o join locations l 
+                                                  ON o.fk_location_id = l.location_id
+                                                  join users u 
+                                                  ON u.user_id = o.fk_user_id
+                                                  JOIN categories c ON o.fk_cat_id = c.cat_id
+                                                    WHERE obqva_id ='$id'");
+                    if ($pstmt->execute()) {
 
             echo "<div id='figuura'>";
             while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
@@ -33,6 +34,11 @@ if (isset($_GET['name'])) {
                 $obZaglavie = $row['obqva_zagl'];
                 $obCena = $row['price'];
                 $obLokacia = $row['location_name'];
+                $categoriq = $row['cat_name'];
+                $opisanieOb = $row['obqva_opisanie'];
+                $snimka = $row['picture_name'];
+
+
             }
 ?>
 
@@ -41,18 +47,15 @@ if (isset($_GET['name'])) {
     <div id="topmail">
 
         <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" id="back">
-        <h1 id="men">Свържете се с мен</h1>
     </div>
     <div id="infoUser">
-        <div class="up">
-            <img src="" alt="pik">
-        </div>
         <div id="rows">
-            <p>Име на Обявата:
-            <h1> <?= $obZaglavie ?></h1></p>
-            <p>Град: <?= $obLokacia ?></p>
+            <p><h1>  Това е заглавието:<?= $obZaglavie ?></h1></p>
+            <p>Град:<?= $obLokacia ?></p>
             <p>Цена:<?= $obCena ?> </p>
-
+            <p>Категория:<?= $categoriq ?> </p>
+            <p>Снимка: <img src='<?= $snimka ?>' alt=""></p>
+            <p>Описание:<?= $opisanieOb ?> </p>
         </div>
     </div>
 
