@@ -1,93 +1,57 @@
 
- <?php
-
+<?php
 // session_start();
- if(!(isset($_SESSION['username']))){
- 	header('Location:?page=registration',true, 302);
- }else{
-	 if (isset($_POST['submitUpload'])){
-	 	$username=$_SESSION['username'];
 
-	 	$usernamefolder=$_SESSION['username'];
-
-	 	
-	 	$username = $_SESSION['username'];
-	 	if(file_exists("./dir/$username/count.txt")){
-	 		$count=file_get_contents("./dir/$username/count.txt");
-	 	
-	 		$count++;
-	 	
- 		 	$handle = fopen("./dir/$username/count.txt",'w+');
- 		 		fwrite($handle, $count);
-
-		 	fclose($handle);
-	 	}else{
-	 		
-	 		$count=1;
-	 		$handle = fopen("./dir/$username/count.txt",'w+');
- 		 	fwrite($handle, $count);
-
-		 	fclose($handle);
-	 		}
-	 	
-	 		
-
-
-	 	
-	 	$nameOb=$_POST['zaglavie'];
-	 	$kateg=$_POST['kategoriq'];
-	 	$opisanie=$_POST['opisanie'];
-
-	 	$mestopol=$_POST['mestopol'];
-	 	$contactName=$_POST['contactName'];
-	 	$phone=$_POST['phone'];
+if(!(isset($_SESSION['username']))){
+    header('Location:?page=registration',true, 302);
+}else {
 
 
 
+        define('DB_HOST', 'localhost');
+        define('DB_NAME', 'all_stuff');
+        define('DB_USER', 'root');
+        define('DB_PASS', '');
+
+        try {
+            $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+            if (isset($_POST['submitUpload'])) {
+
+
+                $username = $_SESSION['username'];
+                $usernamefolder = $_SESSION['username'];
+                $username = $_SESSION['username'];
+
+                $nameOb = $_POST['zaglavie'];
+                $kateg = $_POST['kategoriq'];
+                $opisanie = $_POST['opisanie'];
+
+                $mestopo = $_POST['mestopol'];
+                $price = $_POST['price'];
+                $phone = $_POST['phone'];
+
+//
+//                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price)
+//                                                  VALUES (null,'$nameOb','$opisanie','1','1','1','$phone','$price')");
+
+
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+
+        }
+    }
+
+
+?>
 
 
 
-	  	 $all =$nameOb.PHP_EOL.$kateg.PHP_EOL.
-	  			$opisanie.PHP_EOL.$mestopol.PHP_EOL.$contactName.PHP_EOL.$phone;
 
-	  	 mkdir("./dir/$usernamefolder/obqva.$count");
-
-	  	$handle=fopen("./dir/$username/obqva.$count/$nameOb.txt",'a+');
-
-	  		fwrite($handle, $all);
-	 	fclose($handle);
-
-
-	 	if (isset($_FILES['image1'])) {
-	 		$fileOnServerName = $_FILES['image1']['tmp_name'];
-	 		$fileOriginalName = $_FILES['image1']['name'];
-
-	 		if (is_uploaded_file($fileOnServerName)) {
-	 			if (move_uploaded_file($fileOnServerName,
-	 					"./dir/$username/obqva.$count/$fileOriginalName")) {
-	 					echo "Bravo, ti uspq! ";
-	 			} else {
-	 			 echo "Tuka si grozen! Smeni!";
-	 			}
-	 		}
-	 		else {
-	 			echo "Tuka si grozen! Smeni!";
-	 		}
-	 	}
-	 	
-// 	 	$obqvaArr=file("./dir/$usernamefolder/obqva.$count/$nameOb.txt");
-	 	
-// 	 	$obqvaString=implode('',$obqvaArr);
-// 	 	echo $obqvaString;
-
-     }
-	 	
-}
- 
-
- ?>
-
- <div id="obqvaout">
+<div id="obqvaout">
  <div id="wrr">
         <h2>Добави обява</h2>
 
@@ -103,15 +67,18 @@
                 <label  for="">Категория: </label>
                 <select  name="kategoriq" id="kategoriq">
 
-                    <option value="avtomobili">Автомобили</option>
-                    <option value="">Машини и инструменти</option>
-                    <option value="">Електроника</option>
-                    <option value="jivotni">Животни</option>
-                    <option value="">Дом и градина</option>
-                    <option value="">Недвижими имоти</option>
-                    <option value="moda">Мода</option>
-                    <option value="">За бебето и детето</option>
-                    <option value="">Спорт, хоби, книги</option>
+                    <option value="avtomobili">-Изберете категория-</option>
+                    <?php
+                    $pstmt = $db->prepare("SELECT cat_name FROM categories;");
+
+
+                    if ($pstmt->execute()) {
+                        while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                            $categories = $row['cat_name'];
+                            echo "<option value=''>$categories</option>";
+                        }
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -124,33 +91,31 @@
                 <label for="img">Снимки: </label>
                 <input name="image1" id="img1" type="file"  accept="image/*" />
 				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image2" id="img2" type="file"  accept="image/*" />
-				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-				 <input name="image3" id="img3" type="file"  accept="image/*" />
-				<input type='hidden' name='MAX_FILE_SIZE' value='8000000' />
-
             </div>
 
             <div class="regtext">
                 <label >Местоположение: </label>
 
-                    <?php
 
-	                    echo "<select name='mestopol'   id='mestopol' >";
-	                    echo "<option >"."-Изберете Град-"."</option>";
-	                    for($in=0; $in<count($arr); $in++){
-	                    	echo "<option value=$arr[$in]>".$arr[$in]."</option>";
-	                    }
-	                    echo "</select>";
 
-                        ?>
-
+	                    <select name='mestopol'   id='mestopol' >
+	                    <option >-Изберете Град-</option>
+                            <?php
+                            $pstmt = $db->prepare("SELECT location_name FROM locations;");
+                            if ($pstmt->execute()) {
+                                while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                                    $locationSiti = $row['location_name'];
+                                    echo "<option value=''>$locationSiti</option>";
+                                }
+                            }
+                            ?>
+	                    </select>
 
             </div>
             <div class="regtext">
 
-                <label for="">Вашето име: </label>
-                <input size="23" type="text" name="contactName">
+                <label for="">Цена: </label>
+                <input size="23" type="text" name="price">
             </div>
 
             <div class="regtext">
@@ -160,11 +125,8 @@
             <div>
                 <input type="submit" id="upload" name="submitUpload" value="Запиши" >
             </div>
-            <input type="hidden" value="<?php $count; ?>">
         </form>
      
     </div>
  </div>
  </div>
-
- 

@@ -16,6 +16,6 @@
         <img src="../allStuff/assets/images/mercedes-benz-logo.png" alt="mercedes">
         <h3><a href="">Audi</a></h3>
         <p class="date">data</p>
-        <p class="suma">cena</p>
+        <p class="suma">Cena</p>
     </div>
 </div>
