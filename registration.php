@@ -48,6 +48,7 @@ try {
 //        Registration
 
     if (isset($_POST['submit'])) {
+    	
         $email = htmlentities(trim($_POST['mail']));
         $username = htmlentities(trim($_POST['username']));
         $pass = htmlentities(trim($_POST['pass']));
