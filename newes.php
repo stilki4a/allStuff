@@ -1,9 +1,11 @@
 
 <?php
 // session_start();
+
 if(!(isset($_SESSION['username']))){
     header('Location:?page=registration',true, 302);
 }else {
+
 
 
         define('DB_HOST', 'localhost');
@@ -32,9 +34,15 @@ if(!(isset($_SESSION['username']))){
                 $price = $_POST['price'];
                 $phone = $_POST['phone'];
 
+<<<<<<< HEAD
                 if (isset($_FILES['image1'])) {
                     $fileOnServerName = $_FILES['image1']['tmp_name'];
                     $fileOriginalName = $_FILES['image1']['name'];
+=======
+
+                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price);                                                 VALUES (null,'$nameOb','$opisanie',1,1,1,'$phone','$price')");
+
+>>>>>>> 1183bfab7726cea389f31d61f4c19fed88f0b6d8
 
                     if (is_uploaded_file($fileOnServerName)) {
                         if (move_uploaded_file($fileOnServerName,
@@ -81,15 +89,19 @@ if(!(isset($_SESSION['username']))){
                 <label  for="">Категория: </label>
                 <select  name="kategoriq" id="kategoriq">
 
-                    <option value="avtomobili">-Изберете категория-</option>
+                    <option value="">-Изберете категория-</option>
                     <?php
-                    $pstmt = $db->prepare("SELECT cat_name FROM categories;");
+                    $pstmt = $db->prepare("SELECT cat_id, cat_name FROM categories;");
 
 
                     if ($pstmt->execute()) {
                         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                             $categories = $row['cat_name'];
+<<<<<<< HEAD
                             echo "<option value='<?= $row[cat_id]'>$categories</option>";
+=======
+                            echo "<option value='$row[cat_id]'>$categories</option>";
+>>>>>>> 1183bfab7726cea389f31d61f4c19fed88f0b6d8
                         }
                     }
                     ?>
@@ -115,11 +127,15 @@ if(!(isset($_SESSION['username']))){
 	                    <select name='mestopol'   id='mestopol' >
 	                    <option >-Изберете Град-</option>
                             <?php
-                            $pstmt = $db->prepare("SELECT location_name FROM locations;");
+                            $pstmt = $db->prepare("SELECT location_id, location_name FROM locations;");
                             if ($pstmt->execute()) {
                                 while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                                     $locationSiti = $row['location_name'];
+<<<<<<< HEAD
                                     echo "<option value='<?= $row[location_id]'>$locationSiti</option>";
+=======
+                                    echo "<option value='$row[location_id]' > $locationSiti</option>";
+>>>>>>> 1183bfab7726cea389f31d61f4c19fed88f0b6d8
                                 }
                             }
                             ?>

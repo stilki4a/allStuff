@@ -12,7 +12,8 @@
 }
 #reglog {
 	width:100%;
-	padding:1em 5em;
+	height:500px;
+	padding:5em;
 	box-sizing:border-box;
 	display:inline-block;
 } 
@@ -75,6 +76,7 @@ input[type=submit]{
 	font-size:1.2em;
 	
 }
+
 #obqvaout{
 	width:1170px;
 	box-sizing:border-box;

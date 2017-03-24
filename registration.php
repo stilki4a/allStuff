@@ -44,9 +44,11 @@ try {
 
 
 
+
 //        Registration
 
     if (isset($_POST['submit'])) {
+    	
         $email = htmlentities(trim($_POST['mail']));
         $username = htmlentities(trim($_POST['username']));
         $pass = htmlentities(trim($_POST['pass']));
@@ -76,6 +78,7 @@ try {
                     $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
                                             VALUES (null,'$username','$email','$pass','$repPass');");
 
+<<<<<<< HEAD
                     if ($pstmt->execute()) {
 
                         session_start();
@@ -83,15 +86,26 @@ try {
                         $_SESSION['username'] = $username;
                         mkdir("./dir/$username");
                         header('Location:?page=homepage', true, 302);
-                    }
+=======
+                        if ($pstmt->execute()) {
 
+                            session_start();
+                            $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
+                            $_SESSION['username'] = $username;
+                            mkdir("./dir/$username");
+                            header('Location:?page=homepage', true, 302);
+                        }
+>>>>>>> 1183bfab7726cea389f31d61f4c19fed88f0b6d8
+                    }
                 }
 
 
 
 
             }
+
         }
+        
     }else{
         $email = '';
         $username = '';
@@ -171,6 +185,9 @@ catch (PDOException $e) {
 
             <div id="submit">
                 <input type="submit" name="submit" value="Запиши"/>
+            </div>
+              <div id="exist">
+              
             </div>
 
         </form>
