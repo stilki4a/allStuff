@@ -36,8 +36,7 @@
                     $pstmt = $db->prepare("Select o.obqva_id,o.obqva_zagl,o.price,l.location_name,o.picture_name
                                              From obqva o
                                              JOIN locations l
-                                             ON l.location_id = o.fk_location_id
-                                             left outer JOIN pictures p ON o.obqva_id = p.fk_obqva_id");
+                                             ON l.location_id = o.fk_location_id");
                     if ($pstmt->execute()) {
 
                         echo "<div id='figuura'>";
@@ -50,7 +49,6 @@
                             echo "</a></div>";
                             echo"</div>";
 
-                        
                         }
                         echo "</div>";
                     }
