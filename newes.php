@@ -28,15 +28,30 @@ if(!(isset($_SESSION['username']))){
                 $opisanie = $_POST['opisanie'];
 
                 $mestopo = $_POST['mestopol'];
+                echo $mestopo." tova sa id ".$kateg;
                 $price = $_POST['price'];
                 $phone = $_POST['phone'];
 
+                if (isset($_FILES['image1'])) {
+                    $fileOnServerName = $_FILES['image1']['tmp_name'];
+                    $fileOriginalName = $_FILES['image1']['name'];
 
-                $pstmt = $db->prepare("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price)
+                    if (is_uploaded_file($fileOnServerName)) {
+                        if (move_uploaded_file($fileOnServerName,
+                            "./dir/$username/$fileOriginalName")) {
+                            echo "Bravo, ti uspq! ";
+                        } else {
+                            echo "Tuka si grozen!SSmeni!";
+                        }
+                    }
+                    else {
+                        echo "Tuka si grozen! Smeni!";
+                    }
+                }
+                $picPath = "./dir/$username/$fileOriginalName";
+                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_subcat_id,phone,price,picture_name)
                                         VALUES (null,'$nameOb','$opisanie',
-                                        (SELECT user_id FROM users WHERE user_name = '$username'),1,2,'$phone','$price'))");
-
-
+                                        (SELECT user_id FROM users WHERE user_name ='$username'),$kateg,$mestopo,'$phone','$price','$fileOriginalName'))");
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -74,7 +89,7 @@ if(!(isset($_SESSION['username']))){
                     if ($pstmt->execute()) {
                         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                             $categories = $row['cat_name'];
-                            echo "<option value=''>$categories</option>";
+                            echo "<option value='<?= $row[cat_id]'>$categories</option>";
                         }
                     }
                     ?>
@@ -104,7 +119,7 @@ if(!(isset($_SESSION['username']))){
                             if ($pstmt->execute()) {
                                 while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                                     $locationSiti = $row['location_name'];
-                                    echo "<option value=''>$locationSiti</option>";
+                                    echo "<option value='<?= $row[location_id]'>$locationSiti</option>";
                                 }
                             }
                             ?>
