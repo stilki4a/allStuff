@@ -8,10 +8,6 @@
 	 if (isset($_POST['submitUpload'])){
 	 	$username=$_SESSION['username'];
 
-
-
-
-
 	 	$usernamefolder=$_SESSION['username'];
 
 	 	

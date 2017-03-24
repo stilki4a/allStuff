@@ -1,6 +1,9 @@
 <?php
 $wrong="";
 $wellcome="";
+$existing="";
+$equalPass="";
+
 if (isset($_POST['login'])){
 
     $username=htmlentities($_POST['username']);
@@ -49,19 +52,22 @@ if (isset($_POST['submit'])){
     $existingUser = false;
 
     $handle = fopen('pit.txt','a+');
+    
 
     while(!feof( $handle )){
         $row = fgets( $handle );
         $date = explode("-",$row);
         if($date[0] == $username){
-            echo "Съществува потребител с такова потребителско име!";
+            $existing="Съществува потребител с такова потребителско име!";
             $existingUser=true;
             break;
         }
     }
     if($existingUser == false){
+    	$existing="";
         $wellcome="";
         if($_POST['pass'] === $_POST['Repeat']){
+        	$equalPass="";
             $newUser = $username . "-" . $pass . "-".$loginMail.PHP_EOL;
             
             fwrite( $handle, $newUser);
@@ -73,7 +79,7 @@ if (isset($_POST['submit'])){
 
             header('Location:?page=homepage',true,302);
         }else{
-            echo "Парола и Повтори парола не са еднакви!";
+            $equalPass= "Парола и Повтори парола не са еднакви!";
         }
     }
 
@@ -150,6 +156,9 @@ if (isset($_POST['submit'])){
             <div id="submit">
                 <input type="submit" name="submit" value="Запиши"/>
 
+            </div>
+              <div id="exist">
+                <?=$existing;?> <?=$equalPass;?>
             </div>
 
         </form>
