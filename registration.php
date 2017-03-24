@@ -2,7 +2,7 @@
 $wrong="";
 $wellcome="";
 $diffPass = "";
-
+$prazniPoleta = '';
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'all_stuff');
@@ -13,7 +13,7 @@ try {
     $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //Login
+    //------------------------Login-----------------------------------------
     if (isset($_POST['login'])) {
 
         $username = htmlentities(trim($_POST['username']));
@@ -51,38 +51,44 @@ try {
         $username = htmlentities(trim($_POST['username']));
         $pass = htmlentities(trim($_POST['pass']));
         $repPass = htmlentities(trim($_POST['Repeat']));
+        if (strlen($email) === 0 ||strlen($username) ===0 || strlen($pass) === 0 || strlen($repPass) ===0 ){
+            $prazniPoleta = "Моля попълнете полетата";
+        }else {
+            if ($pass !== $repPass) {
+                $diffPass = "Различни пароли";
+            } else {
 
-        if ($pass !== $repPass) {
-            $diffPass ="Различни пароли";
-        } else {
+                $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
 
-            $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
+               if ($pstmt->execute()) {
+                   $existingEmail = false;
+                   while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                       if ($email === $row['user_email'] || $username === $row ['user_name']) {
+                           $existingEmail = true;
+                           $sameEmail = "Име или емайл е зает";
+                           break;
 
-            if ($pstmt->execute()) {
+                       }
+                   }
+               }
+                if (!$existingEmail) {
 
-                while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                    if ($email === $row['user_email'] || $username === $row ['user_name']) {
-                        echo "Име или емайл е зает";
-                        break;
-                    } else {
-
-
-                        $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
+                    $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
                                             VALUES (null,'$username','$email','$pass','$repPass');");
 
-                        if ($pstmt->execute()) {
+                    if ($pstmt->execute()) {
 
-                            session_start();
-                            $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
-                            $_SESSION['username'] = $username;
-                            mkdir("./dir/$username");
-                            header('Location:?page=homepage', true, 302);
-                        }
-
-
+                        session_start();
+                        $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
+                        $_SESSION['username'] = $username;
+                        mkdir("./dir/$username");
+                        header('Location:?page=homepage', true, 302);
                     }
 
                 }
+
+
+
 
             }
         }
@@ -168,6 +174,7 @@ catch (PDOException $e) {
             </div>
 
         </form>
+        <p><?= $prazniPoleta; ?></p>
         <p><?= $diffPass; ?></p>
 
     </div>

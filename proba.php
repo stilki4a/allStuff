@@ -34,9 +34,6 @@ if (isset($_GET['name'])) {
                 $obCena = $row['price'];
                 $obLokacia = $row['location_name'];
             }
-
-
-
 ?>
 
 
