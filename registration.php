@@ -76,7 +76,7 @@ try {
                 if (!$existingEmail) {
 
                     $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
-                                            VALUES (null,'$username','$email','$pass','$repPass');");
+                                            VALUES (null,'$username','$email','$pass','$repPass')");
                     if ($pstmt->execute()) {
 
                         session_start();
