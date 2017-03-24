@@ -62,23 +62,21 @@ try {
 
                 $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
 
-               if ($pstmt->execute()) {
-                   $existingEmail = false;
-                   while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                       if ($email === $row['user_email'] || $username === $row ['user_name']) {
-                           $existingEmail = true;
-                           $sameEmail = "Име или емайл е зает";
-                           break;
+                if ($pstmt->execute()) {
+                    $existingEmail = false;
+                    while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                        if ($email === $row['user_email'] || $username === $row ['user_name']) {
+                            $existingEmail = true;
+                            $sameEmail = "Име или емайл е зает";
+                            break;
 
-                       }
-                   }
-               }
+                        }
+                    }
+                }
                 if (!$existingEmail) {
 
                     $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
                                             VALUES (null,'$username','$email','$pass','$repPass');");
-
-<<<<<<< HEAD
                     if ($pstmt->execute()) {
 
                         session_start();
@@ -86,20 +84,9 @@ try {
                         $_SESSION['username'] = $username;
                         mkdir("./dir/$username");
                         header('Location:?page=homepage', true, 302);
-=======
-                        if ($pstmt->execute()) {
-
-                            session_start();
-                            $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
-                            $_SESSION['username'] = $username;
-                            mkdir("./dir/$username");
-                            header('Location:?page=homepage', true, 302);
-                        }
->>>>>>> 1183bfab7726cea389f31d61f4c19fed88f0b6d8
                     }
+
                 }
-
-
 
 
             }

@@ -1,4 +1,3 @@
-
 <div  id="avtowrapper">
     <div class="avtomobili">
         <img src="../allStuff/assets/images/Audi-Logo-PNG.png" alt="audilogo">
