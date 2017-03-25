@@ -27,7 +27,7 @@ if (isset($_GET['name'])) {
                                                     WHERE obqva_id ='$id'");
                     if ($pstmt->execute()) {
 
-            echo "<div id='figuura'>";
+            
             while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
 //                            var_dump($row);
 
@@ -45,19 +45,19 @@ if (isset($_GET['name'])) {
 
 
 <div id="wrrbig">
-    <div id="topmail">
-
-        <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" id="back">
-    </div>
-    <div id="info">
+   
+    
         <div id="rows">
-            <div class="obname"><h1>  Разглеждате обява:<?= $obZaglavie ?></h1></div>
-            <div >Град:<?= $obLokacia ?></p>
-            <p>Цена:<?= $obCena ?> </p>
-            <p>Категория:<?= $categoriq ?> </p>
-            <p> <img src='<?= $snimka ?>' alt=""></p>
-            <p>Описание:<?= $opisanieOb ?> </p>
-        </div>
+            <div class="obname">
+               <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" id="back">
+           	   <h1>  Разглеждате обява:<?= $obZaglavie ?></h1>
+            </div>
+            <div class="city">Град:<?= $obLokacia ?></div>
+            <div class="suma">Цена:<?= $obCena ?> </div>
+            <div class="cat">Категория:<?= $categoriq ?> </div>
+            <div class="bigpic"> <img src='<?= $snimka ?>' alt=""></div>
+            <div class="opi">Описание:<?= $opisanieOb ?> </div>
+       
     </div>
 
 

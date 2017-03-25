@@ -5,6 +5,7 @@
 	box-sizing:border-box;
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0 auto;
+	box-shadow:20px 20px 100px 20px #7A9985;
 }
 header{
 	width:100%;
@@ -24,7 +25,7 @@ header{
 	font-weight:bold;
 	color:#ffffff;
 	display:inline-block;
-	box-shadow:20px 20px 80px 20px #7A9985
+	
 	
 }	
 h2  a{
@@ -74,18 +75,18 @@ h2  a{
 }
 #underhome{
 	width:100%;
-	background-color:#31B158;
+	background-color:#4BC86C;
 	box-sizing:border-box;
 	padding:1em;
-	margin-top:-3;
-	box-shadow:20px 20px 800px 20px #7A9985;
+	margin-top:-3px;
+	
 	display:inline-block;
 }
 #hallo{
 	text-align:right;
 	font-size:1.2em;
 	color:#ffffff;
-	padding:5px
+	padding:5px;
 }
 #haloo a{
 	color:#ffffff;
@@ -105,7 +106,7 @@ h2  a{
 }
 
 #grad{
-	width:45%;
+	width:40%;
 	height:40px;
 	box-sizing:border-box;
 	background-color:#ffffff;
@@ -120,7 +121,7 @@ h2  a{
 	 #search{
 	display:inline-block;
 	margin:0 8px;
-	width:49%;
+	width:45%;
 	height:40px;
 	
 	border:3px solid #ffffff ;
@@ -137,18 +138,10 @@ h2  a{
 	float:right;
 	opacity:0.6;
 	padding:5px;
-	background-color:#ffffff;
+	
 }
 
-input[type=image]{
-	height:35px;
-	width:35px;
-	float:right;
-	display:inline-block;
-	background-color:#ffffff;
 
-	opacity:0.6;
-}
 #menu{
 	width:100%;
 	display:inline-block;

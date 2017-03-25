@@ -7,7 +7,7 @@ a {text-decoration:none;
 }
 
 .name{
-	padding:0.5em;
+	padding:0.5em 11em;
 
 }
 
@@ -19,7 +19,10 @@ a {text-decoration:none;
 	
 
 .obsti{
-	padding:1em;]
+	padding:1em;
+	width:100%;
+	display:inline-block;
+	  box-sizing: border-box;
 }
 .pics{
 	box-shadow:20px 20px 80px 20px #7A9985;
@@ -51,5 +54,32 @@ a {text-decoration:none;
 
 
 #wrrbig{
+	width:700px;
+	margin: 0 auto;
+	padding:2em;
+	 box-sizing: border-box;
+	box-shadow:20px 20px 80px 20px #7A9985;
+    
+	
 	
 }
+
+.bigpic{
+	padding:1em;
+	
+	display:inline-block;
+	 box-sizing: border-box;
+	
+}
+
+.bigpic img{
+	width:500px;
+	display:inline-block;
+	
+}
+
+
+
+
+
+
