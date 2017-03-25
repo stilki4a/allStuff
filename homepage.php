@@ -33,7 +33,7 @@
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-                    $pstmt = $db->prepare("Select o.obqva_id,o.obqva_zagl,o.price,l.location_name,o.picture_name
+                    $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name
                                              From obqva o
                                              JOIN locations l
                                              ON l.location_id = o.fk_location_id");
@@ -45,7 +45,7 @@
                             echo "<div id='link'>";
                             echo " <a href='./proba.php?name=$row[obqva_id]'>";
                             echo"<img src='$row[picture_name]'alt='snimkataa'>";
-                            echo"<h2>$row[obqva_zagl]</h2>";
+                            echo"<h2>$row[obqva_name]</h2>";
                             echo "</a></div>";
                             echo"</div>";
 //                        echo "<strong> $row[pictrure_name]</strong>";

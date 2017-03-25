@@ -15,7 +15,7 @@
 //                                             From obqva o
 //                                             JOIN locations l
 //                                             ON l.location_id = o.fk_location_id");
-                $pstmt = $db ->prepare("SELECT obqva_id,obqva_zagl,picture_name,price FROM obqva WHERE fk_cat_id =1");
+                $pstmt = $db ->prepare("SELECT obqva_id,obqva_name,picture_name,price FROM obqva WHERE fk_cat_id =2");
 
 
                 if ($pstmt->execute()) {

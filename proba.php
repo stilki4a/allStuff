@@ -17,7 +17,7 @@ if (isset($_GET['name'])) {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-                $pstmt = $db->prepare("select o.obqva_zagl,o.obqva_opisanie,o.picture_name,o.price,l.location_name,u.user_name,user_id, c.cat_name
+                $pstmt = $db->prepare("select o.obqva_name,o.obqva_opisanie,o.picture_name,o.price,l.location_name,u.user_name,user_id, c.cat_name
                                                   FROM obqva o join locations l 
                                                   ON o.fk_location_id = l.location_id
                                                   join users u 
@@ -31,7 +31,7 @@ if (isset($_GET['name'])) {
 //                            var_dump($row);
 
 
-                $obZaglavie = $row['obqva_zagl'];
+                $obZaglavie = $row['obqva_name'];
                 $obCena = $row['price'];
                 $obLokacia = $row['location_name'];
                 $categoriq = $row['cat_name'];

@@ -26,10 +26,10 @@ if(!(isset($_SESSION['username']))){
                 $username = $_SESSION['username'];
 
                 $nameOb = $_POST['zaglavie'];
-                $kateg = $_POST['kategoriq'];
+                $kateg = $_POST['kategoriq']+0;
                 $opisanie = $_POST['opisanie'];
 
-                $mestopo = $_POST['mestopol'];
+                $mestopo = $_POST['mestopol']+0;
                 echo $mestopo." tova sa id ".$kateg;
                 $price = $_POST['price'];
                 $phone = $_POST['phone'];
@@ -55,9 +55,9 @@ if(!(isset($_SESSION['username']))){
                 }
                 $picPath = "./dir/$username/$fileOriginalName";
 
-                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_zagl,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
+                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
                                         VALUES (null,'$nameOb','$opisanie',
-                                        (SELECT user_id FROM users WHERE user_name ='$username'),$kateg,$mestopo,'$phone','$price','$picPath')");
+                                        (SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
