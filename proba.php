@@ -1,4 +1,5 @@
 <?php
+include_once 'header.php';
 
 if (isset($_GET['name'])) {
     $id = $_GET['name'];
@@ -43,18 +44,18 @@ if (isset($_GET['name'])) {
 ?>
 
 
-<div id="wrraper">
+<div id="wrrbig">
     <div id="topmail">
 
         <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" id="back">
     </div>
-    <div id="infoUser">
+    <div id="info">
         <div id="rows">
-            <p><h1>  Това е заглавието:<?= $obZaglavie ?></h1></p>
-            <p>Град:<?= $obLokacia ?></p>
+            <div class="obname"><h1>  Разглеждате обява:<?= $obZaglavie ?></h1></div>
+            <div >Град:<?= $obLokacia ?></p>
             <p>Цена:<?= $obCena ?> </p>
             <p>Категория:<?= $categoriq ?> </p>
-            <p>Снимка: <img src='<?= $snimka ?>' alt=""></p>
+            <p> <img src='<?= $snimka ?>' alt=""></p>
             <p>Описание:<?= $opisanieOb ?> </p>
         </div>
     </div>

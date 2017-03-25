@@ -1,5 +1,5 @@
-<div  id="avtowrapper">
-<div class="avtomobili">
+
+<div class="obsti">
             <?php
             define('DB_HOST', 'localhost');
             define('DB_NAME', 'all_stuff');
@@ -20,16 +20,26 @@
 
                 if ($pstmt->execute()) {
 
-                        echo "<div>";
+                        
                     while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<div>";
+                        echo "<div class='pics'>";
                         echo " <a href='./proba.php?name=$row[obqva_id]'>";
                         echo"<img src='$row[picture_name]'alt='snimkataa'>";
-                        echo"<h2>$row[obqva_name]</h2>";
+                          echo"<h2>$row[obqva_name]</h2>";
                         echo "</a></div>";
 
+
+                        echo"<div class='name'><h2>$row[obqva_name]</h2></div>";
+                      
+                        echo "</a>";
+                        
+                        echo "<div class='price'><spam>$row[price].lv</spam></div>";
+                        
+                      	echo"</div>";
+                       
+
                     }
-                    echo "</div>";
+                   
                 }
             }
             catch (PDOException $e) {
@@ -38,6 +48,4 @@
 
             ?>
 </div>
-
-
-  </div>
+</div>

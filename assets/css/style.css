@@ -27,7 +27,7 @@ header{
 	box-shadow:20px 20px 80px 20px #7A9985
 	
 }	
-h2 > a{
+h2  a{
 	text-decoration:none;
 	color:#ffffff;
 	font-size:2.5em;
@@ -86,6 +86,9 @@ h2 > a{
 	font-size:1.2em;
 	color:#ffffff;
 	padding:5px
+}
+#haloo a{
+	color:#ffffff;
 }
 
 
