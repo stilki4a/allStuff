@@ -67,7 +67,7 @@ define('DB_PASS', '');
           
 
 
-            <form action="?page=search" method="get">
+            <form action="search.php" method="get">
                 <select id="grad" name="grad">
                     <option value="">  Изберете Град</option>
                     <?php
