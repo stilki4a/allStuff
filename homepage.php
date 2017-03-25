@@ -48,8 +48,7 @@
                             echo"<h2>$row[obqva_name]</h2>";
                             echo "</a></div>";
                             echo"</div>";
-//                        echo "<strong> $row[pictrure_name]</strong>";
-//                        var_dump($row);
+
                         }
                         echo "</div>";
                     }
