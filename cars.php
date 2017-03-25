@@ -11,10 +11,6 @@
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-//                $pstmt = $db->prepare("Select o.obqva_id,o.obqva_zagl,o.price,l.location_name,o.picture_name
-//                                             From obqva o
-//                                             JOIN locations l
-//                                             ON l.location_id = o.fk_location_id");
                 $pstmt = $db ->prepare("SELECT obqva_id,obqva_name,picture_name,price FROM obqva WHERE fk_cat_id =2");
 
 
@@ -25,16 +21,12 @@
                         echo "<div class='pics'>";
                         echo " <a href='./proba.php?name=$row[obqva_id]'>";
                         echo"<img src='$row[picture_name]'alt='snimkataa'>";
-                          echo"<h2>$row[obqva_name]</h2>";
-                        echo "</a></div>";
-
-
                         echo"<div class='name'><h2>$row[obqva_name]</h2></div>";
-                      
+
                         echo "</a>";
-                        
+
                         echo "<div class='price'><spam>$row[price].lv</spam></div>";
-                        
+
                       	echo"</div>";
                        
 
