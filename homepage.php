@@ -23,19 +23,19 @@
 
             <?php
 
-        if (isset($_GET['submitGrad']) && $_GET['grad'] >= 1) {
-            $locationId = $_GET['grad'];
-
-            $pstmt = $db->prepare("SELECT * FROM obqva WHERE fk_location_id = $locationId");
-
-
-        }else{
+//        if (isset($_GET['submitGrad']) && $_GET['grad'] >= 1) {
+//            $locationId = $_GET['grad'];
+//
+//            $pstmt = $db->prepare("SELECT * FROM obqva WHERE fk_location_id = $locationId");
+//
+//
+//        }else{
             $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name
                                              From obqva o
                                              JOIN locations l
                                              ON l.location_id = o.fk_location_id 
                                              ORDER BY obqva_id DESC");
-        }
+//        }
             if ($pstmt->execute()) {
 
                 echo "<div id='figuura'>";
