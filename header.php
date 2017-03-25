@@ -42,26 +42,45 @@ define('DB_PASS', '');
 
                 <a  href="?page=registration">Моят профил</a>
             </div>
-        </div>
 
-        <div id="underhome">
             <div id="hallo">
                 <?php
                 session_start();
                 if(isset($_SESSION['Hallousername'])){
 
                     echo $_SESSION['Hallousername'];
-                
-                ?>
-                
+
+                    ?>
+
 
                     <a href="?page=Logout" name="logout">Изход</a>
-                
-                <?php 
+
+                    <?php
                 }
                 ?>
-                
+
             </div>
+
+        </div>
+
+        <div id="underhome">
+<!--            <div id="hallo">-->
+<!--                --><?php
+//                session_start();
+//                if(isset($_SESSION['Hallousername'])){
+//
+//                    echo $_SESSION['Hallousername'];
+//
+//                ?>
+<!--                -->
+<!---->
+<!--                    <a href="?page=Logout" name="logout">Изход</a>-->
+<!--                -->
+<!--                --><?php //
+//                }
+//                ?>
+<!--                -->
+<!--            </div>-->
             
 
           
