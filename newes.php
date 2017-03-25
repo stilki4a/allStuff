@@ -53,7 +53,7 @@ if(!(isset($_SESSION['username']))){
                         echo "Tuka si grozen! Smeni!";
                     }
                 }
-                $picPath = "./dir/$username/$fileOriginalName";
+                $picPath = "./dir/$username//$fileOriginalName";
 
                 $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
                                         VALUES (null,'$nameOb','$opisanie',

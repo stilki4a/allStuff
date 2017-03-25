@@ -25,7 +25,7 @@
                         echo "<div>";
                         echo " <a href='./proba.php?name=$row[obqva_id]'>";
                         echo"<img src='$row[picture_name]'alt='snimkataa'>";
-                        echo"<h2>$row[obqva_zagl]</h2>";
+                        echo"<h2>$row[obqva_name]</h2>";
                         echo "</a></div>";
 
                     }
