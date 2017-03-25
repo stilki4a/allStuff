@@ -1,8 +1,14 @@
 <?php
-$arr= array("Благоевград","Бургас","Варна","Велико Търново","Видин","Враца",
-    "Габрово","Добрич","Кърджали","Кюстендил","Ловеч","Монтана","Пазарджик","Перник",
-    "Плевен","Пловдив","Разград","Русе","Силистра","Сливен","Смолян",
-	"София","Ст.Загора","Търговище","Хасково","Шумен","Ямбол");
+
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'all_stuff');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+
+
+       $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 ?>
 
@@ -24,7 +30,7 @@ $arr= array("Благоевград","Бургас","Варна","Велико �
     <header>
 
         <div id="logo">
-            <h2><a href="?page=homepage">AllStuff.bg</a></h2>
+            <h2><a href="index.php?page=homepage">AllStuff.bg</a></h2>
 
 
             <button name="obqva" class="buton" id="obqva" >
@@ -60,22 +66,27 @@ $arr= array("Благоевград","Бургас","Варна","Велико �
 
           
 
-                <label for="grad"> </label>
 
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
                 <select id="grad" name="grad">
-                    <option value="$i">  Изберете Град</option>
+                    <option value="">  Изберете Град</option>
                     <?php
-                    for ($i = 0; $i <count($arr); $i++){
+                    $pstmt = $db->prepare("SELECT location_id, location_name FROM locations ORDER BY location_id;");
+                    if ($pstmt->execute()) {
+                        while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                            $locationSiti = $row['location_name'];
 
-                        echo '<option value="$i">'.$arr[$i].'</option>';
+
+                            echo "<option name='graD' value='$row[location_id]'> $locationSiti</option>";
+                        }
                     }
                     ?>
                 </select>
 
-                <input id="search" type="search" name="search" placeholder="Search..." size="150">
+               <input id="search" type="search" name="search" placeholder="Search..." size="150">
                
-                    <input  name="lupa" type="image" src="./assets/images/lupa2.png" alt="Submit">
-               
-           
+<!--                    <input  name="lupa" type="image" src="./assets/images/lupa2.png" alt="Submit">-->
+                <input type="submit" value="Търси" name="submitGrad" id="lupa">
+                </form>
         </div>
     </header>

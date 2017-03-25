@@ -23,40 +23,42 @@
 
             <?php
 
-            define('DB_HOST', 'localhost');
-            define('DB_NAME', 'all_stuff');
-            define('DB_USER', 'root');
-            define('DB_PASS', '');
+        if (isset($_GET['submitGrad']) && $_GET['grad'] >= 1) {
+            $locationId = $_GET['grad'];
 
-            try {
-                $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pstmt = $db->prepare("SELECT * FROM obqva WHERE fk_location_id = $locationId");
 
 
-                    $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name
+        }else{
+            $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name
                                              From obqva o
                                              JOIN locations l
                                              ON l.location_id = o.fk_location_id");
-                    if ($pstmt->execute()) {
+        }
+            if ($pstmt->execute()) {
 
-                        echo "<div id='figuura'>";
-                        while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<div id='profile'>";
-                            echo "<div id='link'>";
-                            echo " <a href='./proba.php?name=$row[obqva_id]'>";
-                            echo"<img src='$row[picture_name]'alt='snimkataa'>";
-                            echo"<h2>$row[obqva_name]</h2>";
-                            echo "</a></div>";
-                            echo"</div>";
+                echo "<div id='figuura'>";
+                while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<div id='profile'>";
+                    echo "<div id='link'>";
+                    echo " <a href='./proba.php?name=$row[obqva_id]'>";
+                    echo "<img src='$row[picture_name]'alt='snimkataa'>";
+                    echo "<h2>$row[obqva_name]</h2>";
+                    echo "</a></div>";
+                    echo "</div>";
 
-                        }
-                        echo "</div>";
-                    }
                 }
-            catch (PDOException $e) {
-                echo $e->getMessage();
+                echo "</div>";
             }
 
+
+
+
+//                }
+//            catch (PDOException $e) {
+//                echo $e->getMessage();
+//            }
+//
 
             ?>
 
