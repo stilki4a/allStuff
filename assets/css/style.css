@@ -75,9 +75,10 @@ h2  a{
 }
 #underhome{
 	width:100%;
+	height:150px;
 	background-color:#4BC86C;
 	box-sizing:border-box;
-	padding:1em;
+	padding:0em;
 	margin-top:-3px;
 	
 	display:inline-block;
@@ -86,28 +87,33 @@ h2  a{
 	text-align:right;
 	font-size:1.2em;
 	color:#ffffff;
-	padding:5px;
+	padding:5px 8px;
 }
-#haloo a{
-	color:#ffffff;
+#underhome a{
+	text-decoration:none;
+	color:#FF8F45;
+	
+	font-weight:bolder;
+	
 }
 
 
 #searcharea{
 	width:100%;
 	
+	margin-top:1em;
 	box-sizing:border-box;
-	background-color:#ffffff;
+
 	color:#000000;
 	padding:8px 8px 8px 5px;
 	display:inline-block;
-	float:left;
+	
 	
 }
 
 #grad{
-	width:40%;
-	height:40px;
+	width:42%;
+	height:45px;
 	box-sizing:border-box;
 	background-color:#ffffff;
 	color:#000000;
@@ -121,8 +127,8 @@ h2  a{
 	 #search{
 	display:inline-block;
 	margin:0 8px;
-	width:45%;
-	height:40px;
+	width:42%;
+	height:45px;
 	
 	border:3px solid #ffffff ;
 	opacity:0.6;
@@ -132,9 +138,9 @@ h2  a{
 #lupa{
 	display:inline-block;
 	width:13%;
-	height:35px;
+	height:45px;
 	box-sizing:border-box;
-	border: 3px solid #ffffff;
+	
 	float:right;
 	opacity:0.6;
 	padding:5px;

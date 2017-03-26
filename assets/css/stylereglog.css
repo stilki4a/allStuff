@@ -64,7 +64,7 @@ input[name=login]{
 	
 
 
-input[type=submit]{
+#reglog input[type=submit],#upload{
 	
 	background-color:#FF8F45;
 	display:inline-block;

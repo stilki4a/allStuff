@@ -43,50 +43,32 @@ define('DB_PASS', '');
                 <a  href="?page=registration">Моят профил</a>
             </div>
 
-            <div id="hallo">
-                <?php
-                session_start();
-                if(isset($_SESSION['Hallousername'])){
-
-                    echo $_SESSION['Hallousername'];
-
-                    ?>
-
-
-                    <a href="?page=Logout" name="logout">Изход</a>
-
-                    <?php
-                }
-                ?>
-
-            </div>
-
+          
         </div>
 
         <div id="underhome">
-<!--            <div id="hallo">-->
-<!--                --><?php
-//                session_start();
-//                if(isset($_SESSION['Hallousername'])){
-//
-//                    echo $_SESSION['Hallousername'];
-//
-//                ?>
-<!--                -->
-<!---->
-<!--                    <a href="?page=Logout" name="logout">Изход</a>-->
-<!--                -->
-<!--                --><?php //
-//                }
-//                ?>
-<!--                -->
-<!--            </div>-->
+           <div id="hallo">
+			<?php
+               session_start();
+               if(isset($_SESSION['Hallousername'])){
+
+                   echo $_SESSION['Hallousername'];
+
+               ?>
+              
+
+                   <a href="?page=Logout" name="logout">Изход</a>
+               <?php 
+               }
+               ?>
+              
+           </div>
             
 
           
 
 
-            <form action="search.php" method="get">
+            <form id="searcharea" action="search.php" method="get">
                 <select id="grad" name="grad">
                     <option value="">  Изберете Град</option>
                     <?php
