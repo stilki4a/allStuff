@@ -35,12 +35,12 @@ define('DB_PASS', '');
 
             <button name="obqva" class="buton" id="obqva" >
             
-		     <a name="obqva" href="?page=newes" >Добави обява</a>
+		     <a name="obqva" href="index.php?page=newes" >Добави обява</a>
 
             </button>
             <div class="buton">
 
-                <a  href="?page=registration">Моят профил</a>
+                <a  href="index.php?page=registration">Моят профил</a>
             </div>
 
             <div id="hallo">
@@ -53,7 +53,7 @@ define('DB_PASS', '');
                     ?>
 
 
-                    <a href="?page=Logout" name="logout">Изход</a>
+                    <a href="index.php?page=Logout" name="logout">Изход</a>
 
                     <?php
                 }
