@@ -6,8 +6,8 @@ if(!(isset($_SESSION['username']))){
     header('Location:?page=registration',true, 302);
 }else {
 
-
-
+    $emtyOb='';
+    $wrongPic='';
         try {
             $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,50 +15,59 @@ if(!(isset($_SESSION['username']))){
 
             if (isset($_POST['submitUpload'])) {
 
-
-                $username = $_SESSION['username'];
-                $usernamefolder = $_SESSION['username'];
-                $username = $_SESSION['username'];
-
-                $nameOb = $_POST['zaglavie'];
-                $kateg = $_POST['kategoriq']+0;
-                $opisanie = $_POST['opisanie'];
-
-                $mestopo = $_POST['mestopol']+0;
-                echo $mestopo." tova sa id ".$kateg;
-                $price = $_POST['price'];
-                $phone = $_POST['phone'];
-
-
                 if (isset($_FILES['image1'])) {
                     $fileOnServerName = $_FILES['image1']['tmp_name'];
                     $fileOriginalName = $_FILES['image1']['name'];
+                    
 
 
+                    $usernamefolder = $_SESSION['username'];
+                    $username = $_SESSION['username'];
 
-                    if (is_uploaded_file($fileOnServerName)) {
-                        if (move_uploaded_file($fileOnServerName,
-                            "./dir/$username/$fileOriginalName")) {
-                            echo "Bravo, ti uspq! ";
+                    $nameOb = $_POST['zaglavie'];
+                    $kateg = $_POST['kategoriq'] + 0;
+                    $opisanie = $_POST['opisanie'];
+
+                    $mestopo = $_POST['mestopol'] + 0;
+                    $price = $_POST['price'];
+                    $phone = $_POST['phone'];
+
+
+                    if ((empty($nameOb)) && (empty($opisanie)) && (empty($price)) && (empty($phone)) && ($fileOriginalName =='')) {
+                        $emtyOb="Опитвате се да качите празна обява";
+                    } else {
+
+
+                        if (is_uploaded_file($fileOnServerName)) {
+                            if (move_uploaded_file($fileOnServerName,
+                                "./dir/$username/$fileOriginalName")) {
+//                                echo "Bravo, ti uspq! ";
+                            } else {
+                                $wrongPic = "Грешка при качване на снимката";
+                            }
+
                         } else {
-                            echo "Tuka si grozen!SSmeni!";
+
                         }
-                    }
-                    else {
-                        echo "Tuka si grozen! Smeni!";
+
+
+                        $picPath = "./dir/$username/$fileOriginalName";
+
+                        $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
+                                            VALUES (null,'$nameOb','$opisanie',
+                                            (SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
+
                     }
                 }
-                $picPath = "./dir/$username//$fileOriginalName";
-
-                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
-                                        VALUES (null,'$nameOb','$opisanie',
-                                        (SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
             }
-        } catch (PDOException $e) {
+
+
+            } catch (PDOException $e) {
             echo $e->getMessage();
 
         }
     }
+
 
 
 ?>
@@ -90,7 +99,7 @@ if(!(isset($_SESSION['username']))){
                         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
                             $categories = $row['cat_name'];
 
-                        echo "".$row['cat_id'];
+//                        echo "".$row['cat_id'];
 
                             echo "<option value='$row[cat_id]'>$categories</option>";
 
@@ -113,8 +122,6 @@ if(!(isset($_SESSION['username']))){
 
             <div class="regtext">
                 <label >Местоположение: </label>
-
-
 
 	                    <select name='mestopol'   id='mestopol' >
                             <?php
@@ -144,8 +151,11 @@ if(!(isset($_SESSION['username']))){
             <div>
                 <input type="submit" id="upload" name="submitUpload" value="Запиши" >
             </div>
+            <div>
+                <p> <?= $emtyOb ?> </p>
+            </div>
+            <div> <?= $wrongPic ?> </div>
         </form>
-     
     </div>
  </div>
  </div>
