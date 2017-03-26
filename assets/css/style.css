@@ -7,6 +7,9 @@
 	margin:0 auto;
 	box-shadow:20px 20px 100px 20px #7A9985;
 }
+a{
+	text-decoration:none;
+}
 header{
 	width:100%;
 	box-sizing:border-box;
@@ -154,7 +157,7 @@ h2  a{
 	box-sizing:border-box;
 	padding:13px;
 	background-color:#C2FAC4;
-	box-shadow:20px 20px 800px 20px #7A9985
+	
 }
 #menu ul{
 	width:33%;
@@ -233,7 +236,7 @@ span {
 	box-sizing: border-box;
 	display: inline-block;
 	margin: 0.7em;
-	box-shadow: 25px 30px 30px -9px #C2FAC4;
+	box-shadow: 5px 5px 10px 5px #7A9985;
 }
 
 
@@ -241,6 +244,12 @@ span {
 	width: 100%;
 	height: 80%;
 	display:inline-block;
+
+
+}
+
+#profile  a {
+	color:black;
 
 
 }
