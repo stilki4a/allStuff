@@ -51,10 +51,7 @@ define('DB_PASS', '');
                     echo $_SESSION['Hallousername'];
 
                     ?>
-
-
                     <a href="index.php?page=Logout" name="logout">Изход</a>
-
                     <?php
                 }
                 ?>
