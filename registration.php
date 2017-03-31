@@ -29,7 +29,7 @@ try {
                      header('Location:?page=homepage', true, 302);
                     break;
                 }
-                if($userPasWrong = true){
+                if($userPasWrong){
                     $wrong = "Грешен потребител или  парола!";
                 }
             }

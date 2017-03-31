@@ -3,6 +3,6 @@
 	
 //session_start();
 session_destroy();
-header('Location:?page=homepage',true,302);
+header('Location:homepage.php',true,302);
 //}
 ?>

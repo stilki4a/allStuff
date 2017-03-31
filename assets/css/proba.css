@@ -50,13 +50,25 @@
 
 
 #wrrbig{
-	width:700px;
-	margin: 0 auto;
+	width:1000px;
+	margin: 0 auto;;
 	padding:2em;
 	 box-sizing: border-box;
 	box-shadow:20px 20px 80px 20px #7A9985;
-    
 	
+    	
+}
+
+#rows{
+	width:100%;
+	display:inline-block;
+	padding:1em;
+}
+
+.obname h1{
+	font-size:1.8em;
+	font-weight:bold;
+	text-align:center;
 	
 }
 
@@ -65,12 +77,41 @@
 	
 	display:inline-block;
 	 box-sizing: border-box;
+	 float:left;
+	 display:inline-block;
 	
 }
 
 .bigpic img{
-	width:500px;
+	width:400px;
 	display:inline-block;
+	
+}
+.obsto{
+	padding:1em 2em;
+	float:left;
+	display:inline-block;
+	
+}
+.picright{
+	margin:0.8em 0em;
+	font-size:1em;
+	
+}
+#mail{
+	width:100%;
+	padding:1em;
+	 box-sizing: border-box;
+	 box-shadow:20px 20px 80px 20px #7A9985;
+	 display:inline-block;
+	
+	 
+}
+#mail h2{
+	font-size:1.2em;
+	font-weight:bold;
+	text-align:center;
+	margin:1em;
 	
 }
 
