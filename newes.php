@@ -8,6 +8,7 @@ if(!(isset($_SESSION['username']))){
 
     $emtyOb='';
     $wrongPic='';
+
         try {
             $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,7 +19,7 @@ if(!(isset($_SESSION['username']))){
                 if (isset($_FILES['image1'])) {
                     $fileOnServerName = $_FILES['image1']['tmp_name'];
                     $fileOriginalName = $_FILES['image1']['name'];
-                    
+
 
 
                     $usernamefolder = $_SESSION['username'];
@@ -52,7 +53,8 @@ if(!(isset($_SESSION['username']))){
 
 
                         $picPath = "./dir/$username/$fileOriginalName";
-
+                        $db->exec("SET NAMES utf8;");
+                        $db->exec("SET character_set_results=utf8;");
                         $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
                                             VALUES (null,'$nameOb','$opisanie',
                                             (SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
