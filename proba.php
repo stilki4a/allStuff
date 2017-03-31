@@ -61,9 +61,9 @@ if (isset($_GET['name'])) {
 	            <div class="picright">Град:<?= $obLokacia ?></div>
 	            <div class="picright">Цена:<?= $obCena ?> </div>
 	          
-	            <div class= "picright">Обявата е качена от <?= $userName ?></div>
-	            <div class= "picright">Обадете се:<?= $phone ?></div>
-	             <div class="picright">Описание:<?= $opisanieOb ?> </div>
+	            <div class= "picright">Обявата е качена от: <?= $userName ?></div>
+	            <div class= "picright">Обадете се: <?= $phone ?></div>
+	             <div class="picright" id="text"> Описание: <?= $opisanieOb ?> </div>
        		</div>
        		
        		<div id="mail"><h2>Изпратете съобщение</h2>
