@@ -1,4 +1,6 @@
 <?php
+
+
 include_once ('header.php');
 require_once 'nav.php';
 $userId=$_SESSION['userid'];
@@ -161,6 +163,8 @@ if (isset($_POST['update'])){
                     } else {
 
                     }
+
+
                     $picPath = "./dir/$username/$fileOriginalName";
 
                     $db->exec("SET NAMES utf8;");
@@ -168,9 +172,9 @@ if (isset($_POST['update'])){
 
                     $pstmt = $db->prepare("UPDATE obqva SET obqva_name= ?,obqva_opisanie= ?,fk_location_id= ?,
                                   fk_cat_id= ?, phone= ?,price= ?, picture_name= ?
-						 			WHERE obqva_id = $obIdForUpdate");
+						 			WHERE obqva_id = ?");
 
-                    if ($pstmt->execute(array($nameOb, $opisanie, $mestopo, $kateg, $phone, $price, $picPath))) {
+                    if ($pstmt->execute(array($nameOb, $opisanie, $mestopo, $kateg, $phone, $price, $picPath, $obIdForUpdate))) {
                     }
 
                 }
