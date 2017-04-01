@@ -5,6 +5,7 @@ include_once ('header.php');
 
 require_once 'nav.php';
 $userId=$_SESSION['userid'];
+$username=$_SESSION['username'];
 
 if (isset($_POST['update'])){
 	$obIdForUpdate = $_POST['update'];
@@ -13,6 +14,7 @@ if (isset($_POST['update'])){
 	$wrongPic="";
 	
 	//echo $obIdForDell;
+	try{
 	 
 	$pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name,o.phone,o.obqva_opisanie,c.cat_name
                                              From obqva o
@@ -184,11 +186,12 @@ if (isset($_POST['update'])){
 				
 			}
 		}
-	} 
-catch (PDOException $e) {
+	} } catch (PDOException $e) {
             echo $e->getMessage();
 
         }
+
+
 	
 
 	
