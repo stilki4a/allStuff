@@ -77,12 +77,13 @@ if(!(isset($_SESSION['username']))){
 
 
 
-<div id="obqvaout">
- <div id="wrr">
+<div class="obqvaout">
+ <div class="wrr">
         <h2>Добави обява</h2>
 
         <form enctype='multipart/form-data' action="?page=newes" method="post">
-            <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
+         <link rel="stylesheet" href="../AllStuff/assets/css/stylereglog.css" type="text/css" />
+           
 
             <div class="regtext">
                 <label for="">Заглавие: </label>

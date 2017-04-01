@@ -77,7 +77,7 @@ input[name=login]{
 	
 }
 
-#obqvaout{
+.obqvaout{
 	width:1170px;
 	box-sizing:border-box;
 	display:inline-block;
@@ -85,7 +85,7 @@ input[name=login]{
 	padding:0.5em;
 	margin:0 auto;
 }
-#wrr {
+.wrr {
 	width:500px;
 	padding:1em;
 	box-sizing:border-box;
@@ -96,7 +96,7 @@ input[name=login]{
 
 }
 
-#wrr h2{
+.wrr h2{
 	font-weight:bold;
 	padding:0.5em;
 	font-size:2em;

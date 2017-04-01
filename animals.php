@@ -1,4 +1,7 @@
 
+<?php
+require_once 'nav.php';
+?>
 <div class="obsti">
     <?php
 

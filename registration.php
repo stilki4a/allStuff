@@ -1,108 +1,116 @@
 <?php
-$wrong="";
-$wellcome="";
-$diffPass = "";
-$prazniPoleta = '';
+//session_start();
+if(isset($_SESSION['userid'])){
+	header('Location:myprofile.php', true, 302);
+	
+}else{
 
+	$wrong="";
+	$wellcome="";
+	$diffPass = "";
+	$prazniPoleta = '';
+	
+	
+	try {
+	    $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+	    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	
+	    //------------------------Login-----------------------------------------
+	    if (isset($_POST['login'])) {
+	
+	        $username = htmlentities(trim($_POST['username']));
+	        $pass = htmlentities(trim($_POST['pass']));
+	
+	
+	        $pstmt = $db->prepare("SELECT user_id,user_name,user_pass FROM users");
+	
+	        if ($pstmt->execute()) {
+	            $userPasWrong = true;
+	            while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+	                if ($username === $row['user_name'] && $pass === $row['user_pass']){
+	                    $userPasWrong = false;
+	                   // session_start();
+	                    $_SESSION['Hallousername'] = "Здравей" . " " . $username. "!";
+	                    $_SESSION['username'] = $username;
+	                    $_SESSION['userid'] = $row['user_id'];
+	                     header('Location:?page=homepage', true, 302);
+	                    break;
+	                }
+	                if($userPasWrong){
+	                    $wrong = "Грешен потребител или  парола!";
+	                }
+	            }
+	        }
+	    }
+	
+	
+	
+	
+	
+	
+	//        Registration
+	
+	    if (isset($_POST['submit'])) {
+	    	
+	        $email = htmlentities(trim($_POST['mail']));
+	        $username = htmlentities(trim($_POST['username']));
+	        $pass = htmlentities(trim($_POST['pass']));
+	        $repPass = htmlentities(trim($_POST['Repeat']));
+	        if (strlen($email) === 0 ||strlen($username) ===0 || strlen($pass) === 0 || strlen($repPass) ===0 ){
+	            $prazniPoleta = "Моля попълнете полетата";
+	        }else {
+	            if ($pass !== $repPass) {
+	                $diffPass = "Различни пароли";
+	            } else {
+	
+	                $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
+	
+	                if ($pstmt->execute()) {
+	                    $existingEmail = false;
+	                    while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+	                        if ($email === $row['user_email'] || $username === $row ['user_name']) {
+	                            $existingEmail = true;
+	                            $sameEmail = "Име или емайл е зает";
+	                            break;
+	
+	                        }
+	                    }
+	                }
+	                if (!$existingEmail) {
+	
+	                    $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
+	                                            VALUES (null,'$username','$email','$pass','$repPass')");
+	                    if ($pstmt->execute()) {
+	
+	                       // session_start();
+	                        $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
+	                        $_SESSION['username'] = $username;
+	                        $_SESSION['userid'] = $row['user_id'];
+	                        mkdir("./dir/$username");
+	                        header('Location:?page=homepage', true, 302);
+	                    }
+	
+	                }
+	
+	
+	            }
+	
+	        }
+	        
+	    }else{
+	        $email = '';
+	        $username = '';
+	        $pass = '';
+	        $repPass = '';
+	        $loginMail = '';
+	
+	    }
+	}
+	catch (PDOException $e) {
+	    echo $e->getMessage();
+	}
 
-try {
-    $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //------------------------Login-----------------------------------------
-    if (isset($_POST['login'])) {
-
-        $username = htmlentities(trim($_POST['username']));
-        $pass = htmlentities(trim($_POST['pass']));
-
-
-        $pstmt = $db->prepare("SELECT user_name,user_pass FROM users");
-
-        if ($pstmt->execute()) {
-            $userPasWrong = true;
-            while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                if ($username === $row['user_name'] && $pass === $row['user_pass']){
-                    $userPasWrong = false;
-                    session_start();
-                    $_SESSION['Hallousername'] = "Здравей" . " " . $username. "!";
-                    $_SESSION['username'] = $username;
-                     header('Location:?page=homepage', true, 302);
-                    break;
-                }
-                if($userPasWrong){
-                    $wrong = "Грешен потребител или  парола!";
-                }
-            }
-        }
-    }
-
-
-
-
-
-
-//        Registration
-
-    if (isset($_POST['submit'])) {
-    	
-        $email = htmlentities(trim($_POST['mail']));
-        $username = htmlentities(trim($_POST['username']));
-        $pass = htmlentities(trim($_POST['pass']));
-        $repPass = htmlentities(trim($_POST['Repeat']));
-        if (strlen($email) === 0 ||strlen($username) ===0 || strlen($pass) === 0 || strlen($repPass) ===0 ){
-            $prazniPoleta = "Моля попълнете полетата";
-        }else {
-            if ($pass !== $repPass) {
-                $diffPass = "Различни пароли";
-            } else {
-
-                $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
-
-                if ($pstmt->execute()) {
-                    $existingEmail = false;
-                    while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                        if ($email === $row['user_email'] || $username === $row ['user_name']) {
-                            $existingEmail = true;
-                            $sameEmail = "Име или емайл е зает";
-                            break;
-
-                        }
-                    }
-                }
-                if (!$existingEmail) {
-
-                    $pstmt = $db->prepare("INSERT INTO users (user_id,user_name,user_email,user_pass,user_rep_pass)
-                                            VALUES (null,'$username','$email','$pass','$repPass')");
-                    if ($pstmt->execute()) {
-
-                        session_start();
-                        $_SESSION['Hallousername'] = "Здравей" . " " . $username . "!";
-                        $_SESSION['username'] = $username;
-                        mkdir("./dir/$username");
-                        header('Location:?page=homepage', true, 302);
-                    }
-
-                }
-
-
-            }
-
-        }
-        
-    }else{
-        $email = '';
-        $username = '';
-        $pass = '';
-        $repPass = '';
-        $loginMail = '';
-
-    }
 }
-catch (PDOException $e) {
-    echo $e->getMessage();
-}
-
-
 ?>
 
 <div id="wrrap">

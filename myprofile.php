@@ -1,5 +1,8 @@
 <?php
     include_once ('header.php');
+    
+    require_once 'nav.php';
+    
         $usernamefolder = $_SESSION['username'];
         $username = $_SESSION['username'];
 
@@ -24,20 +27,28 @@ try {
 
         echo "<div id='figuura'>";
         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
+        	
             echo "<div id='profile'>";
             echo "<div id='link'>";
-            echo " <a href='./proba.php?name=$row[obqva_id]'>";
-            echo "<img src='$row[picture_name]'alt='snimkataa'>";
+            echo " <a href='./proba.php?name = $row[obqva_id]'>";
+            echo "<img src = '$row[picture_name]'alt='snimkataa'>";
             echo "<h2>$row[obqva_name]</h2>";
             echo "</a></div>";
-             $obID =$row['obqva_id'];
+            
+             $obID = $row['obqva_id'];
+             
             echo "<form action='' method='post'>
-    <input type='submit' name='delete' value='Изтрий' id='deleteOb'>
-    <input type='hidden' name='ob_id' id='ob_id' value='$obID' >
+					    <input type='submit' name='delete' value='Изтрий' id='deleteOb'>
+					    <input type='hidden' name='ob_id' id='ob_id' value='$obID' >
                    </form>";
-            echo "<form action='' method='post'>
-    <input type='submit' name='change' value='Промени'>
-                   </form>";
+            
+            echo "<form action='update.php' method='post'>
+            		
+           		 	<button name='update' class='update' id='update' value='$obID' >
+           		 		Редактирай обявата
+            
+           			 </button>
+           			 </form>";
             echo "</div>";
         }
     }
@@ -49,6 +60,9 @@ try {
 //         da se proveri za neshto po dobro ne mi haresva
         echo "<meta http-equiv=\"refresh\" content=\"0\">";
     }
+    
+    
+    
     ?>
 
 
