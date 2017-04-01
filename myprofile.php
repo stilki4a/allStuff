@@ -30,7 +30,7 @@ try {
         	
             echo "<div id='profile'>";
             echo "<div id='link'>";
-            echo " <a href='./proba.php?name = $row[obqva_id]'>";
+            echo " <a href='./proba.php?name=$row[obqva_id]'>";
             echo "<img src = '$row[picture_name]'alt='snimkataa'>";
             echo "<h2>$row[obqva_name]</h2>";
             echo "</a></div>";
