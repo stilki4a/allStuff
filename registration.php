@@ -51,13 +51,13 @@ if(isset($_SESSION['userid'])){
 	
 	    if (isset($_POST['submit'])) {
 	    	
-	        $email = htmlentities(trim(sha1($_POST['mail'])));
+	        $email = htmlentities(trim($_POST['mail']));
 	        $username = htmlentities(trim($_POST['username']));
 	        $pass = htmlentities(trim(sha1($_POST['pass'])));
 	        $repPass = htmlentities(trim(sha1($_POST['Repeat'])));
 
 	        if (strlen($email) === 0 ||strlen($username) < 6 || strlen($pass) < 6 || strlen($repPass) < 6 ){
-	            $prazniPoleta = "Парола и име трябва да бъдат по поне 6 символа";
+	            $prazniPoleta = "Парола и Потребителско име трябва да бъдат поне 6 символа!";
 	        }else {
 	            if (sha1($pass) !== sha1($repPass)) {
 	                $diffPass = "Различни пароли";
