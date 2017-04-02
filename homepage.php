@@ -1,8 +1,5 @@
 
-
-   
-
-            <?php
+<?php
             require_once 'nav.php';
 
 //        if (isset($_GET['submitGrad']) && $_GET['grad'] >= 1) {

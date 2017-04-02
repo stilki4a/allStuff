@@ -56,10 +56,10 @@ if(isset($_SESSION['userid'])){
 	        $username = htmlentities(trim($_POST['username']));
 	        $pass = htmlentities(trim($_POST['pass']));
 	        $repPass = htmlentities(trim($_POST['Repeat']));
-	        if (strlen($email) === 0 ||strlen($username) ===0 || strlen($pass) === 0 || strlen($repPass) ===0 ){
-	            $prazniPoleta = "Моля попълнете полетата";
+	        if (strlen($email) === 0 ||strlen($username) < 6 || strlen($pass) < 6 || strlen($repPass) < 6 ){
+	            $prazniPoleta = "Моля попълнете правилно полетата полетата.Трябва да имат по поне 6 символа";
 	        }else {
-	            if ($pass !== $repPass) {
+	            if (sha1($pass) !== sha1($repPass)) {
 	                $diffPass = "Различни пароли";
 	            } else {
 	

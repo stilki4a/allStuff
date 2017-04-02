@@ -61,7 +61,7 @@ define('DB_PASS', '');
                ?>
               
 
-                   <a href="?page=Logout" name="logout">Изход</a>
+                   <a href="index.php?page=Logout" name="logout">Изход</a>
                <?php 
                }
                ?>
