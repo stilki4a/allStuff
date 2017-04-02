@@ -18,8 +18,8 @@ if(isset($_SESSION['userid'])){
 	    //------------------------Login-----------------------------------------
 	    if (isset($_POST['login'])) {
 	
-	        $username = htmlentities(trim($_POST['username']));
-	        $pass = htmlentities(trim($_POST['pass']));
+	        $username = htmlentities(trim(sha1($_POST['username'])));
+	        $pass = htmlentities(trim(sha1($_POST['pass'])));
 	
 	
 	        $pstmt = $db->prepare("SELECT user_id,user_name,user_pass FROM users");
@@ -27,7 +27,7 @@ if(isset($_SESSION['userid'])){
 	        if ($pstmt->execute()) {
 	            $userPasWrong = true;
 	            while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-	                if ($username === $row['user_name'] && $pass === $row['user_pass']){
+	                if (sha1($username) === $row['user_name'] && sha1($pass) === $row['user_pass']){
 	                    $userPasWrong = false;
 	                   // session_start();
 	                    $_SESSION['Hallousername'] = "Здравей" . " " . $username. "!";
@@ -52,12 +52,13 @@ if(isset($_SESSION['userid'])){
 	
 	    if (isset($_POST['submit'])) {
 	    	
-	        $email = htmlentities(trim($_POST['mail']));
+	        $email = htmlentities(trim(sha1($_POST['mail'])));
 	        $username = htmlentities(trim($_POST['username']));
-	        $pass = htmlentities(trim($_POST['pass']));
-	        $repPass = htmlentities(trim($_POST['Repeat']));
+	        $pass = htmlentities(trim(sha1($_POST['pass'])));
+	        $repPass = htmlentities(trim(sha1($_POST['Repeat'])));
+
 	        if (strlen($email) === 0 ||strlen($username) < 6 || strlen($pass) < 6 || strlen($repPass) < 6 ){
-	            $prazniPoleta = "Моля попълнете правилно полетата полетата.Трябва да имат по поне 6 символа";
+	            $prazniPoleta = "Парола и име трябва да бъдат по поне 6 символа";
 	        }else {
 	            if (sha1($pass) !== sha1($repPass)) {
 	                $diffPass = "Различни пароли";
