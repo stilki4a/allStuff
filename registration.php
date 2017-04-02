@@ -156,7 +156,7 @@ if(isset($_SESSION['userid'])){
 
             </div>
 
-            <div class="regtext">
+            <div class="regtext" id="regName">
                 <label for="username"> Потребителско име:</label>
                 <input id="username" type="text" name="username" size="15" >
             </div>
@@ -193,4 +193,4 @@ if(isset($_SESSION['userid'])){
     </div>
 </div>
 </div>
-
+<script src="./assets/js/registrationvalidation.js"></script>
