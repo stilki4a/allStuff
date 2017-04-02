@@ -9,7 +9,7 @@ if(isset($_SESSION['userid'])){
 	$wellcome="";
 	$diffPass = "";
 	$prazniPoleta = '';
-	
+    $sameEmail = '';
 	
 	try {
 	    $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
@@ -70,7 +70,7 @@ if(isset($_SESSION['userid'])){
 	                    while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
 	                        if ($email === $row['user_email'] || $username === $row ['user_name']) {
 	                            $existingEmail = true;
-	                            $sameEmail = "Име или емайл е зает";
+	                            $sameEmail = "Име или email е зает!";
 	                            break;
 	
 	                        }
@@ -139,7 +139,6 @@ if(isset($_SESSION['userid'])){
             <div class="wrong">
                 <?=$wrong;?>
             </div>
-
         </form>
     </div>
 
@@ -182,8 +181,14 @@ if(isset($_SESSION['userid'])){
             </div>
 
         </form>
+
          <div class="wrong"><?= $prazniPoleta; ?></div>
          <div class="wrong"><?= $diffPass; ?></div>
+
+
+        <div class="wrong">
+            <?=$sameEmail;?>
+        </div>
 
     </div>
 </div>
