@@ -20,7 +20,6 @@ if(isset($_SESSION['userid'])){
 	
 	        $username = htmlentities(trim($_POST['username']));
 	        $pass = htmlentities(trim(sha1($_POST['pass'])));
-            echo $pass;
 	
 	        $pstmt = $db->prepare("SELECT user_id,user_name,user_pass FROM users");
 	
