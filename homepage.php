@@ -17,13 +17,13 @@
 //        }
             if ($pstmt->execute()) {
 
-                echo "<div id='figuura'>";
+                echo "<div class ='figuura'>";
                 while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div id='profile'>";
-                    echo "<div id='link'>";
+                    echo "<div class ='profile'>";
+                    echo "<div class ='link'>";
                     echo " <a href='./proba.php?name=$row[obqva_id]'>";
                     echo "<img src='$row[picture_name]'alt='snimkataa'>";
-                    echo "<h2>$row[obqva_name]</h2>";
+                    echo "<h2 class='obname'>$row[obqva_name]</h2>";
                     echo "</a></div>";
                     echo "</div>";
 

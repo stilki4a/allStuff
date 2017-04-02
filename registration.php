@@ -121,13 +121,13 @@ if(isset($_SESSION['userid'])){
         <form action="?page=registration" method="post">
 
             <div class="regtext">
-                <label for="username"> Username:</label>
+                <label for="username"> Потребителско име:</label>
                 <input id="username" type="text" name="username" size="15" >
 
             </div>
 
             <div class="regtext">
-                <label for="pass"> Password:</label>
+                <label for="pass"> Парола:</label>
                 <input id="pass" type="password" name="pass" size="15" required="required">
             </div>
 
@@ -158,18 +158,18 @@ if(isset($_SESSION['userid'])){
             </div>
 
             <div class="regtext">
-                <label for="username"> Username:</label>
+                <label for="username"> Потребителско име:</label>
                 <input id="username" type="text" name="username" size="15" >
             </div>
 
             <div class="regtext">
-                <label for="pass"> Password:</label>
+                <label for="pass"> Парола:</label>
                 <input id="pass" type="password" name="pass" size="15" required="required">
 
             </div>
 
             <div class="regtext">
-                <label for="reapeat pass">Repeat Password: </label>
+                <label for="reapeat pass">Повтори паролата: </label>
                 <input id="repeat pass" type="password" name="Repeat" size="15" required="required">
 
             </div>

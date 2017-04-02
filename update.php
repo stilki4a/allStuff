@@ -2,7 +2,7 @@
 
 
 include_once ('header.php');
-require_once 'nav.php';
+
 $userId=$_SESSION['userid'];
 $username=$_SESSION['username'];
 
@@ -43,7 +43,7 @@ if (isset($_POST['update'])){
             echo "	
 			<div class='obqvaout'>
  			<div class='wrr'>	
-				<h2>Редактирай</h2>
+				<h2>Редактирай обява $obZaglavie</h2>
 		
 		<form enctype='multipart/form-data' action='update1.php' method='post'>
 		 <link rel='stylesheet' href='../AllStuff/assets/css/stylereglog.css' type='text/css' />
@@ -78,7 +78,7 @@ if (isset($_POST['update'])){
 		
 		            <div class='regtext'>
 		                <label for=''>Описание: </label>
-		                <textarea name='opisanie' id='' cols='44 rows='6' >$opisanieOb</textarea>
+		                <textarea name='opisanie' id='' cols='44' rows='6' >$opisanieOb</textarea>
 		            </div>
 		
 		            <div class='regtext'>

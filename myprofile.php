@@ -12,7 +12,7 @@ try {
 
 ?>
 <div>
-        <h1> Мои обяви</h1>
+       
 
     <?php
     $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name,o.fk_user_id,u.user_name
@@ -25,27 +25,27 @@ try {
                                              ORDER BY obqva_id DESC");
     if ($pstmt->execute()) {
 
-        echo "<div id='figuura'>";
+        echo "<div class='figuura'>";
         while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
         	
-            echo "<div id='profile'>";
-            echo "<div id='link'>";
+            echo "<div class='profile'>";
+            echo "<div class='link'>";
             echo " <a href='./proba.php?name=$row[obqva_id]'>";
             echo "<img src = '$row[picture_name]'alt='snimkataa'>";
-            echo "<h2>$row[obqva_name]</h2>";
+            echo "<h2 class='obname'>$row[obqva_name]</h2>";
             echo "</a></div>";
             
              $obID = $row['obqva_id'];
              
             echo "<form action='' method='post'>
-					    <input type='submit' name='delete' value='Изтрий' id='deleteOb'>
+					    <input type='submit' name='delete' value='Изтрий' class='boton'>
 					    <input type='hidden' name='ob_id' id='ob_id' value='$obID' >
                    </form>";
             
             echo "<form action='update.php' method='post'>
             		
-           		 	<button name='update' class='update' id='update' value='$obID' >
-           		 		Редактирай обявата
+           		 	<button name='update'  class='boton' value='$obID' >
+           		 		Редактирай 
             
            			 </button>
            			 </form>";

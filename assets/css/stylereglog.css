@@ -19,21 +19,24 @@
 } 
 #login{
 	box-sizing:border-box;
-	width:50%;
+	width:48%;
 	display:inline-block;
 	float:left;
 	box-shadow:20px 20px 80px 20px #7A9985;
-	padding:5px;
+	padding:1em;;
+	border-radius:30px;
+	margin:5px;
 	
 }
 #regist{
 	box-sizing:border-box;
-	width:50%;
+	width:48%;
 	display:inline-block;
 	float:left;
 	box-shadow:20px 20px 80px 20px #7A9985;
-	padding:5px;
-	
+	padding:1em;
+	border-radius:30px;
+	margin:5px;
 }
 
 	#login  h2,#regist h2{
@@ -43,8 +46,11 @@
 	color: #666666;
 }
 .regtext{
+	width:100%;
+	
 	padding:0.5em;
 	box-sizing:border-box;
+	margin:0.5em;
 }
 form label{
 	box-sizing:border-box;
@@ -82,7 +88,7 @@ input[name=login]{
 	box-sizing:border-box;
 	display:inline-block;
 	box-shadow:20px 20px 800px 20px #7A9985;
-	padding:0.5em;
+	padding:1em;
 	margin:0 auto;
 }
 .wrr {
@@ -91,7 +97,8 @@ input[name=login]{
 	box-sizing:border-box;
 	font-family:Arial, Helvetica, sans-serif;
 	margin:0 auto;
-	box-shadow:20px 20px 80px 20px #7A9985
+	box-shadow:20px 20px 80px 20px #7A9985;
+	border-radius:30px;
 	
 
 }
@@ -101,4 +108,15 @@ input[name=login]{
 	padding:0.5em;
 	font-size:2em;
 	color: #666666;
+}
+.regtext input,select{
+	width:200px;
+	height:20px;
+	displai:inline-block;
+	
+	
+}
+
+.regtext textarea{
+	width:90%;
 }
