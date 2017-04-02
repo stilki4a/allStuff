@@ -45,7 +45,7 @@ if (isset($_GET['name'])) {
             }
 ?>
 
-    <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" id="back">
+    <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" class='boton'>
 <div id="wrrbig">
    
         
@@ -66,7 +66,7 @@ if (isset($_GET['name'])) {
 	             <div class="picright" id="text"> Описание: <?= $opisanieOb ?> </div>
        		</div>
        		
-       		<div id="mail"><h2>Изпратете съобщение</h2>
+       		<div id="email"><h2>Изпратете съобщение</h2>
        			
        		        <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
 
@@ -110,4 +110,5 @@ if (isset($_GET['name'])) {
     }
 
 }
+
 ?>

@@ -2,7 +2,7 @@
 
 
 include_once ('header.php');
-require_once 'nav.php';
+
 $userId=$_SESSION['userid'];
 $username=$_SESSION['username'];
 

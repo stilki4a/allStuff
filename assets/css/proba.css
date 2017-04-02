@@ -103,7 +103,7 @@
 	 box-sizing: border-box;
 	
 }
-#mail{
+#email{
 	width:100%;
 	padding:1em;
 	 box-sizing: border-box;
@@ -112,7 +112,7 @@
 	
 	 
 }
-#mail h2{
+#email h2{
 	font-size:1.2em;
 	font-weight:bold;
 	text-align:center;
@@ -120,7 +120,28 @@
 	
 }
 
+.boton{
+	float:left;
+	display:inline-block;
+	width:120px;
+	height:30px;
+	background-color:;
+	border-radius:30px;
+	margin:6px;
+}
+	input[name=delete]{
+	background-color:#FF8F45;
+	color:#ffffff;
+	
+}
 
+button[name=update]{
+	
+	background-color:#666666;
+	color:#ffffff;
+}
+	
+}
 
 
 
