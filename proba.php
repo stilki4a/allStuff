@@ -55,7 +55,8 @@ if (isset($_GET['name'])) {
            	   <h1>  Разглеждате обява:<?= $obZaglavie ?></h1>
             </div>
            
-            <div class="bigpic"> <img src='<?= $snimka ?>' alt=""></div>
+            <div class="bigpic"> <img src='<?= $snimka ?>' alt=""
+                                      onmouseover="bigImg(this)" onmouseout="normalImg(this)"></div>
             <div class="obsto">
 	             <div class="picright">Категория:<?= $categoriq ?> </div>
 	            <div class="picright">Град:<?= $obLokacia ?></div>
@@ -113,3 +114,4 @@ if (isset($_GET['name'])) {
 }
 
 ?>
+<script src="./assets/js/forimg.js"></script>
