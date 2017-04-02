@@ -58,14 +58,14 @@ form label{
 	display:inline-block;
 }
 #submit{
-	padding-left:205px;
+	padding-left:240px;
 	display:inline-block;
 	box-sizing:border-box;
 	color:#ffffff;
 	
 }
 input[name=login]{
-	margin-left:205px;
+	margin-left:240px;
 }
 	
 

@@ -136,7 +136,7 @@ if(isset($_SESSION['userid'])){
                 <input type="submit" name="login" value=" Вход"/>
 
             </div>
-            <div id="wrong">
+            <div class="wrong">
                 <?=$wrong;?>
             </div>
 
@@ -182,8 +182,8 @@ if(isset($_SESSION['userid'])){
             </div>
 
         </form>
-        <p><?= $prazniPoleta; ?></p>
-        <p><?= $diffPass; ?></p>
+         <div class="wrong"><?= $prazniPoleta; ?></div>
+         <div class="wrong"><?= $diffPass; ?></div>
 
     </div>
 </div>
