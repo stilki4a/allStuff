@@ -45,12 +45,13 @@ if (isset($_GET['name'])) {
             }
 ?>
 
-    <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" class='boton'>
+    
 <div id="wrrbig">
    
         
         <div id="rows">
             <div class="obname">
+             <input type="button" value="НАЗАД" ONCLICK="history.back(-1)" class='back'>
               
            	   <h1>  Разглеждате обява:<?= $obZaglavie ?></h1>
             </div>

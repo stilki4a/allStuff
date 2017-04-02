@@ -65,16 +65,35 @@
 	padding:1em;
 }
 
+.back{
+	width:120px;
+	height:35px;
+	color:#ffffff;
+	float:left;
+	background-color:#666666;
+	border-radius:30px;
+	font-weight:bold;
+
+	
+}
+.obname{
+	width:100%;
+	 box-sizing: border-box;
+	 display:inline-block;
+	 padding:0.5em;
+	
+}
+
 .obname h1{
 	font-size:1.8em;
 	font-weight:bold;
-	text-align:center;
+	
 	color:#666666;
 	
 }
 
 .bigpic{
-	padding:1em;
+	padding:0.5em;
 	
 	display:inline-block;
 	 box-sizing: border-box;
@@ -84,17 +103,18 @@
 }
 
 .bigpic img{
-	width:400px;
+	width:300px;
 	display:inline-block;
+
 	
 }
 .obsto{
-	padding:1em 2em;
+	padding:1em;
 	float:left;
 	display:inline-block;
 	 box-shadow:20px 20px 80px 20px #7A9985;
 	 border-radius:30px;
-	 margin-top:1em;
+	 margin-top:2em;
 	
 	
 }
@@ -123,10 +143,10 @@
 	float:left;
 	display:inline-block;
 	width:120px;
-	height:30px;
+	height:25px;
 	background-color:;
 	border-radius:30px;
-	margin:6px;
+	margin:5px;
 }
 	input[name=delete]{
 	background-color:#FF8F45;
@@ -166,7 +186,7 @@ buton[name=update]{
 	color: #666666;
 	text-align:center;
 }
-.mess input,select{
+.mess >input,select{
 	width:400px;
 	height:20px;
 	displai:inline-block;
