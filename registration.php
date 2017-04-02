@@ -20,14 +20,14 @@ if(isset($_SESSION['userid'])){
 	
 	        $username = htmlentities(trim($_POST['username']));
 	        $pass = htmlentities(trim(sha1($_POST['pass'])));
-	
+            echo $pass;
 	
 	        $pstmt = $db->prepare("SELECT user_id,user_name,user_pass FROM users");
 	
 	        if ($pstmt->execute()) {
 	            $userPasWrong = true;
 	            while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-	                if ($username === $row['user_name'] && sha1($pass) === $row['user_pass']){
+	                if ($username === $row['user_name'] && $pass === $row['user_pass']){
 	                    $userPasWrong = false;
 	                   // session_start();
 	                    $_SESSION['Hallousername'] = "Здравей" . " " . $username. "!";
