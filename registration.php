@@ -18,7 +18,7 @@ if(isset($_SESSION['userid'])){
 	    //------------------------Login-----------------------------------------
 	    if (isset($_POST['login'])) {
 	
-	        $username = htmlentities(trim(sha1($_POST['username'])));
+	        $username = htmlentities(trim($_POST['username']));
 	        $pass = htmlentities(trim(sha1($_POST['pass'])));
 	
 	
@@ -27,7 +27,7 @@ if(isset($_SESSION['userid'])){
 	        if ($pstmt->execute()) {
 	            $userPasWrong = true;
 	            while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
-	                if (sha1($username) === $row['user_name'] && sha1($pass) === $row['user_pass']){
+	                if ($username === $row['user_name'] && sha1($pass) === $row['user_pass']){
 	                    $userPasWrong = false;
 	                   // session_start();
 	                    $_SESSION['Hallousername'] = "Здравей" . " " . $username. "!";
