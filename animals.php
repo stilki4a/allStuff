@@ -24,7 +24,7 @@ require_once 'nav.php';
 
                 echo "</a>";
 
-                echo "<div class='price'><spam>$row[price].lv</spam></div>";
+                echo "<div class='price'><spam>Цена:$row[price].лв</spam></div>";
 
                 echo"</div>";
 

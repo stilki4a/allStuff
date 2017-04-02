@@ -121,8 +121,8 @@ if(isset($_SESSION['userid'])){
         <form action="?page=registration" method="post">
 
             <div class="regtext">
-                <label for="username"> Потребителско име:</label>
-                <input id="username" type="text" name="username" size="15" >
+                <label for="usname"> Потребителско име:</label>
+                <input id="usname" type="text" name="username" size="15" >
 
             </div>
 
@@ -145,7 +145,7 @@ if(isset($_SESSION['userid'])){
 
 
 
-    <div id="regist" >
+    <div id="regist">
         <h2>Регистрация </h2>
         <form action="?page=registration" method="post">
 

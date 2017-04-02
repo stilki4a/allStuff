@@ -186,13 +186,21 @@ buton[name=update]{
 	color: #666666;
 	text-align:center;
 }
-.mess >input,select{
+.mess input{
 	width:400px;
 	height:20px;
-	displai:inline-block;
+	display:inline-block;
 	
 	
 }
+.mess select{
+	width:400px;
+	height:20px;
+	display:inline-block;
+	
+	
+}
+
 
 .mess textarea{
 	width:80%;
