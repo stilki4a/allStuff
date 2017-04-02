@@ -72,12 +72,12 @@ if (isset($_GET['name'])) {
 
 						
 					<div class="mess" >
-		                <label for="from" class="label"> ОТ: </label>
+		                <label for="from" class="label"> От: </label>
 		                <input type="text" name="from" id="from" value="">
 		              </div >
 		              
 		              <div class="mess">
-		                <label for="to" class="label"> ДО: </label>
+		                <label for="to" class="label"> До: </label>
 		                <input type="text" name="to" id="to" value="<?=$email?>" >
 		              </div>
 		              
@@ -88,11 +88,12 @@ if (isset($_GET['name'])) {
 		              
 		              
 		                 <div class="mess">
-		                    <textarea placeholder="СЪОБЩЕНИЕ" name="message" ></textarea>
+		                    <textarea placeholder="СЪОБЩЕНИЕ" name="message" cols="30" rols="6"></textarea>
+		                 </div>   
 		                    <div id="send">
-		                	<input type="submit" id="upload" name="submit" value="ИЗПРАТИ" >
+		                		<input type="submit" id="upload" name="submit" value="ИЗПРАТИ" >
 		                	</div>
-						</div>
+					
                
            		 </form>
              </div>

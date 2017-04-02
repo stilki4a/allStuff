@@ -69,6 +69,7 @@
 	font-size:1.8em;
 	font-weight:bold;
 	text-align:center;
+	color:#666666;
 	
 }
 
@@ -112,13 +113,7 @@
 	
 	 
 }
-#email h2{
-	font-size:1.2em;
-	font-weight:bold;
-	text-align:center;
-	margin:1em;
-	
-}
+
 
 .boton{
 	float:left;
@@ -135,14 +130,54 @@
 	
 }
 
-button[name=update]{
+buton[name=update]{
 	
 	background-color:#666666;
 	color:#ffffff;
 }
+
+
+.mess{
+	width:100%;
+	
+	padding:0.5em;
+	box-sizing:border-box;
+	margin:0.5em;
+}
+	
+	
+#email{
+	width:90%;
+	border-radius:30px;
+	box-sizing:border-box;
+	margin:0 auto;
+	display:inline-block;
+
+
+	}
+#email h2{
+	font-weight:bold;
+	padding:0.5em;
+	font-size:2em;
+	color: #666666;
+	text-align:center;
+}
+.mess input,select{
+	width:400px;
+	height:20px;
+	displai:inline-block;
+	
 	
 }
 
+.mess textarea{
+	width:80%;
+	height:50px;
+}
+
+#send{
+	padding:
+}
 
 
 
