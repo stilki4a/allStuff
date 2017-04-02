@@ -92,6 +92,10 @@
 	padding:1em 2em;
 	float:left;
 	display:inline-block;
+	 box-shadow:20px 20px 80px 20px #7A9985;
+	 border-radius:30px;
+	 margin-top:1em;
+	
 	
 }
 .picright{
@@ -147,10 +151,10 @@ buton[name=update]{
 	
 	
 #email{
-	width:90%;
+	width:800px;
 	border-radius:30px;
 	box-sizing:border-box;
-	margin:0 auto;
+	margin-left:60px;
 	display:inline-block;
 
 
@@ -176,7 +180,7 @@ buton[name=update]{
 }
 
 #send{
-	padding:
+	padding:0px 300px;
 }
 
 
