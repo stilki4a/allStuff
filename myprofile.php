@@ -75,7 +75,14 @@ try {
     echo $e->getMessage();
 
 }
+
  ?>
 <div>
     <script src="assets/"></script>
 </div>
+
+</div>
+
+<?php 
+require_once 'footer.php';
+?>

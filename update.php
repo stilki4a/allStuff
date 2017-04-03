@@ -137,4 +137,6 @@ if (isset($_POST['update'])){
         }
 
 }
+echo "</div>";
 	
+require_once 'footer.php';

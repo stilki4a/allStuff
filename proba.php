@@ -85,12 +85,12 @@ if (isset($_GET['name'])) {
 		              
 		              <div class="mess">
 		                <label for="subject" id="sub"> Тема: </label>
-		                <input type="text" name="syb" id="subject">
+		                <input type="text" name="sub" id="subject">
 		              </div>
 		              
 		              
 		                 <div class="mess">
-		                    <textarea placeholder="СЪОБЩЕНИЕ" name="message" cols="30" rols="6"></textarea>
+		                    <textarea placeholder="СЪОБЩЕНИЕ" name="message" cols="30" rols="7"></textarea>
 		                 </div>   
 		                    <div id="send">
 		                		<input type="submit" id="upload" name="submit" value="ИЗПРАТИ" >
@@ -111,8 +111,27 @@ if (isset($_GET['name'])) {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+    
+    if (isset($_POST['submit'])){
+    	$to=($_POST['to']);
+    	$headers="FROM:".($_POST['from'])."\r\n)";
+    	$subject=($_POST['sub']);
+    	$txt=($_POST['message']);
+    	mail($to,$subject,$txt,$headers);
+    }
 
 }
 
 ?>
 <script src="./assets/js/forimg.js"></script>
+
+</div>
+<?php 
+require_once 'footer.php';
+?>
+
+
+
+
+
+
