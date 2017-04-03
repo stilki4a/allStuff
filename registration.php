@@ -158,7 +158,7 @@ if(isset($_SESSION['userid'])){
 
             <div class="regtext" id="regName">
                 <label for="username"> Потребителско име:</label>
-                <input id="username" type="text" name="username" size="15" >
+                <input id="username" type="text" name="username" size="15" title="Моля името да съдържа 6 символа" >
             </div>
 
             <div class="regtext">
