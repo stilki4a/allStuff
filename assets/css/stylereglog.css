@@ -123,5 +123,15 @@ input[name=login]{
 .wrong{
 	text-aling:center;
 	color:red;
+	font-weight:bold;
+	padding:0.5em 1em;
+	font-size:1.2em;
+	
+}
+.succ{
+	text-aling:center;
+	color:green;
+	font-weight:bold;
+	padding:0.5em 1em;
 	
 }

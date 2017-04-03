@@ -8,7 +8,11 @@ if(!(isset($_SESSION['username']))){
 
     $emtyOb='';
     $wrongPic='';
-
+    $succ='';
+    
+    $picPath = "./dir/all-stuff.jpg";
+    	 
+   
         try {
             $db = new PDO ("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -35,32 +39,36 @@ if(!(isset($_SESSION['username']))){
 
 
                     if ((empty($nameOb)) && (empty($opisanie)) && (empty($price)) && (empty($phone)) && ($fileOriginalName =='')) {
-                        $emtyOb="Опитвате се да качите празна обява";
+                    	
+                        $emtyOb="Опитвате се да качите празна обява!!!";
                     } else {
 
 
                         if (is_uploaded_file($fileOnServerName)) {
                             if (move_uploaded_file($fileOnServerName,
                                 "./dir/$username/$fileOriginalName")) {
-//                                echo "Bravo, ti uspq! ";
+                                
+                               
+                               
+                            $picPath = "./dir/$username/$fileOriginalName";
                             } else {
-                                $wrongPic = "Грешка при качване на снимката";
+                                $wrongPic = "Грешка при качване на снимката!";
                             }
 
                         } else {
 
                         }
 
-
-                        $picPath = "./dir/$username/$fileOriginalName";
-                        $db->exec("SET NAMES utf8;");
-                        $db->exec("SET character_set_results=utf8;");
-                        $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
-                                            VALUES (null,'$nameOb','$opisanie',
-                                            (SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
-
+                        $succ = "Успешно добавихте обява! ";
                     }
                 }
+                
+                $db->exec("SET NAMES utf8;");
+                $db->exec("SET character_set_results=utf8;");
+                $pstmt = $db->exec("INSERT INTO obqva(obqva_id,obqva_name,obqva_opisanie,fk_user_id,fk_location_id,fk_cat_id,phone,price,picture_name)
+                		VALUES (null,'$nameOb','$opisanie',
+                		(SELECT user_id FROM users WHERE user_name ='$username'),$mestopo,$kateg,'$phone','$price','$picPath')");
+               
             }
 
 
@@ -153,10 +161,10 @@ if(!(isset($_SESSION['username']))){
             <div>
                 <input type="submit" id="upload" name="submitUpload" value="Запиши" >
             </div>
-            <div>
-                <p> <?= $emtyOb ?> </p>
-            </div>
-            <div> <?= $wrongPic ?> </div>
+          
+            <div class="wrong"> <?= $wrongPic ?> </div>
+            <div class="succ" ><?= $succ?></div>
+            <div class="wrong">  <?= $emtyOb ?> </div>
         </form>
     </div>
  </div>

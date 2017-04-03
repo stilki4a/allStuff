@@ -55,7 +55,7 @@ try {
 
     if (isset($_POST['delete'])){
         $value = $_POST['ob_id'];
-        echo $value."id na obqvata e ";
+        
         $pstmt = $db->exec("DELETE FROM obqva WHERE obqva_id ='$value'");
 //         da se proveri za neshto po dobro ne mi haresva
         echo "<meta http-equiv=\"refresh\" content=\"0\">";

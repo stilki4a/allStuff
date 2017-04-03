@@ -57,10 +57,10 @@ if(isset($_SESSION['userid'])){
 	        $repPass = htmlentities(trim(sha1($_POST['Repeat'])));
 
 	        if (strlen($email) === 0 ||strlen($username) < 6 || strlen($pass) < 6 || strlen($repPass) < 6 ){
-	            $prazniPoleta = "Парола и Потребителско име трябва да бъдат поне 6 символа!";
+	            $prazniPoleta = "Парола и Потребителско име трябва да бъдат поне шест символа!";
 	        }else {
 	            if (sha1($pass) !== sha1($repPass)) {
-	                $diffPass = "Различни пароли";
+	                $diffPass = "Парола и Повтори паролане не са еднакви!";
 	            } else {
 	
 	                $pstmt = $db->prepare("SELECT user_name,user_email FROM users");
@@ -70,7 +70,7 @@ if(isset($_SESSION['userid'])){
 	                    while ($row = $pstmt->fetch(PDO::FETCH_ASSOC)) {
 	                        if ($email === $row['user_email'] || $username === $row ['user_name']) {
 	                            $existingEmail = true;
-	                            $sameEmail = "Име или email е зает!";
+	                            $sameEmail = "Има потребител с такъв email или име!";
 	                            break;
 	
 	                        }

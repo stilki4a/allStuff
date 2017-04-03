@@ -12,7 +12,7 @@ if (isset($_POST['update'])){
 	$emtyOb="";
 	$wrongPic="";
 	
-	//echo $obIdForDell;
+	
 	try {
 
         $pstmt = $db->prepare("Select o.obqva_id,o.obqva_name,o.price,l.location_name,o.picture_name,o.phone,o.obqva_opisanie,c.cat_name
@@ -129,67 +129,12 @@ if (isset($_POST['update'])){
 
         
 
-//         if (isset($_POST['updateOb'])) {
 
-//             if (isset($_FILES['image1'])) {
-//                 $fileOnServerName = $_FILES['image1']['tmp_name'];
-//                 $fileOriginalName = $_FILES['image1']['name'];
-
-
-//                 //$usernamefolder = $_SESSION['username'];
-//                 $username = $_SESSION['username'];
-
-//              echo   $nameOb = $_POST['zaglavie'];
-                
-//                 $kateg = $_POST['kategoriq'] + 0;
-//                 $opisanie = $_POST['opisanie'];
-
-//                 $mestopo = $_POST['mestopol'] + 0;
-//                 $price = $_POST['price'];
-//                 $phone = $_POST['phone'];
-
-
-//                 if ((empty($nameOb)) && (empty($opisanie)) && (empty($price)) && (empty($phone)) && ($fileOriginalName == '')) {
-//                     $emtyOb = "Опитвате се да качите празна обява";
-//                 } else {
-
-
-//                     if (is_uploaded_file($fileOnServerName)) {
-//                         if (move_uploaded_file($fileOnServerName,
-//                             "./dir/$username/$fileOriginalName")) {
-//                              echo "Bravo, ti uspq! ";
-//                         } else {
-//                             $wrongPic = "Грешка при качване на снимката";
-//                         }
-
-//                     } else {
-// 						echo "e tuka se chupq!";
-//                     }
-
-
-//                    $picPath = "./dir/$username/$fileOriginalName";
-
-//                     $db->exec("SET NAMES utf8;");
-//                     $db->exec("SET character_set_results=utf8;");
-
-//                     $pstmt = $db->prepare("UPDATE obqva SET obqva_name=?,obqva_opisanie=?,fk_location_id=?,
-//                                   fk_cat_id=?, phone=?,price=? 
-// 						 			WHERE obqva_id=?");
-
-//                     if ($pstmt->execute(array($nameOb, $opisanie, $mestopo, $kateg, $phone, $price, $obIdForUpdate))) {
-//                     }
-
-//                 }
-//             }
-//         }
         }
     } catch (PDOException $e) {
             echo $e->getMessage();
 
         }
-
-
-
 
 }
 	
