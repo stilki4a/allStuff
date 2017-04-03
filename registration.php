@@ -150,7 +150,7 @@ if(isset($_SESSION['userid'])){
         <form action="?page=registration" method="post">
 
 
-            <div class="regtext">
+            <div class="regtext" id="maiL">
                 <label for="mail">Email:</label>
                 <input id="mail" type="email" name="mail"  value="<?= $email; ?>" size="15" maxlength="35"/>
 
