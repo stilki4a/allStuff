@@ -163,9 +163,9 @@ if(isset($_SESSION['userid'])){
 
             <div class="regtext">
                 <label for="pass"> Парола:</label>
-                <input id="pass" type="password" name="pass" size="15" required="required">
-                <input title="Паролата трябва да бъде поне 6 символа,включваща главна буква и цифра"
-                       type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
+                <input id="pass" type="password" name="pass" size="15" required="required"
+                 title="Паролата трябва да бъде поне 6 символа,включваща главна буква и цифра"
+                       type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
                         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
                         if(this.checkValidity()) form.pwd2.pattern = this.value;">
 
@@ -173,9 +173,9 @@ if(isset($_SESSION['userid'])){
 
             <div class="regtext">
                 <label for="reapeat pass">Повтори паролата: </label>
-                <input id="repeat pass" type="password" name="Repeat" size="15" required="required">
-                <input title="Моля напишете същата парола както горе" type="password"
-                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+                <input id="repeat pass" type="password" name="Repeat" size="15" required="required"
+                title="Моля напишете същата парола както горе"
+                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  onchange="
                             this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
 
             </div>
@@ -200,4 +200,4 @@ if(isset($_SESSION['userid'])){
     </div>
 </div>
 </div>
-<script src="./assets/js/registrationvalidation.js"></script>
+<script></script>
