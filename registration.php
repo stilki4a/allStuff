@@ -167,7 +167,7 @@ if(isset($_SESSION['userid'])){
                  title="Паролата трябва да бъде поне 6 символа,включваща главна буква и цифра"
                        type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
                         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
-                        if(this.checkValidity()) form.pwd2.pattern = this.value;">
+                        if(this.checkValidity()) form.pass.pattern = this.value;">
 
             </div>
 
@@ -175,7 +175,7 @@ if(isset($_SESSION['userid'])){
                 <label for="reapeat pass">Повтори паролата: </label>
                 <input id="repeat pass" type="password" name="Repeat" size="15" required="required"
                 title="Моля напишете същата парола както горе"
-                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  onchange="
+                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
                             this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
 
             </div>
