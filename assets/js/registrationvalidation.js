@@ -14,8 +14,8 @@ var nameField = document.getElementById('username');
     }
 };
 
- // nameField.onfocus = function () {
-    nameField.onkeypress = function () {
+  nameField.onfocus = function () {
+ //    nameField.onkeypress = function () {
    var errorMasege = document.querySelector("#regName > .errors");
    if(errorMasege) {
        errorMesege.parentNode.removeChild(errorMesege);
